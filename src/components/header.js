@@ -1,14 +1,14 @@
-import './header.css'
-import avatar from '.././img/avatar.png'
+import './header.css';
+import avatar from '.././img/avatar.png';
 
 function Header() {
     return (
       <section className='black-section-intro'>
           <header className='container'>
-              <div style = {{width: '10vw'}}></div>
+              <div className='pad'></div>
               <div className='intro'>
                   <div>
-                      <span style = {{color: '#05caa5'}}>Hi</span>, I am
+                      <span style = {{color: '#05caa5'}}>Hi</span>, I am 
                   </div>
                   <div>
                     <span style = {{color: '#05caa5'}}>Ł</span>ukasz
@@ -22,7 +22,9 @@ function Header() {
                   </div>
               </div>
               <div className='avatar'>
-                    <img src={avatar}></img>
+                  <div>
+                    <img src={avatar} alt='avatar'></img>
+                  </div>
               </div>
           </header>
       </section>

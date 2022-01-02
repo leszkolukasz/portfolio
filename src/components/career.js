@@ -1,37 +1,116 @@
-import { DiPython, DiGit, DiLinux } from "react-icons/di";
-import { CgCPlusPlus } from "react-icons/cg";
-import './career.css'
+import React, { useEffect, useState, useRef } from 'react';
+import './career.css';
+
 
 function Career() {
-    return (
-      <div className="container-career">
-        <section className='black-section-career'>
-            <header>
-                <div>
-                    <hr></hr>
-                </div>
-                <div>
-                    Career
-                </div>
-            </header>
-            <article>
-                <p>I am a software engineer specializing in machine learning. Currently pursuing bachelor's degree in Computer Science at <strong>University of Warsaw</strong>.</p>
+    const [achievements, setAchievements] = useState([
+        { id: 1, title: '1st place in the 1st round of the 28th Polish Olympiad in Informatics' },
+        { id: 2, title: 'Finalist of the 4th edition of the Jagiellonian Mathematics Tournament' }
+    ]);
 
-                <p>Computer science and mathematics have always been my passion that has driven me to spend hours upon hours solving complex problems, and discovering new ways to create a better software. Throughout he last decade I have tried many different fields of computer science: imperative programming, functional programming, web development, microcontroller programming, blockchain, quantum computing, yet application of algorithms has always been dearest to my heart. Because of that I have spend whole high school preparing for Polish Olympiad in Informatics and participating in competitive programming contests. This is also where my interest in AI stemmed from. Machine learinng is a combination of both algorithmic knowledge and mathematics, which is why it engrossed me so much and is my main point of interest till today.</p>
-            </article>
-            <div className='achievements-header'>
-                <div><hr></hr></div>
-                <div>Achievements</div>
-                <div><hr></hr></div>
-            </div>
-            <div className='achievements'>
-                <DiPython/>
-                <CgCPlusPlus/>
-                <DiGit/>
-                <DiLinux style = {{height: "0.85em"}}/>
-            </div>
-        </section>
-      </div>
+    const [path, setPath] = useState([
+        { date: '2018 - 2021', primary: 'Liceum im. Stefana Batorego w Warszawie', secondary: 'profile: mathematics - physics'},
+        { date: '2021 - current', primary: 'University of Warsaw', secondary: 'bachelor\'s degree: Computer Science'}
+    ]);
+
+    const canvasRef = useRef(null);
+
+    let draw = () => {
+        if(draw.last_draw !== undefined && ((new Date()) - draw.last_draw)/1000 < 0.5)
+            return;
+
+        draw.last_draw = new Date();
+
+        let height = 300;
+        let width = window.innerWidth * 0.8;
+        let font_size = 1;
+        let shift = height/path.length*0.3;
+        let shift_date = width/4;
+
+        if(window.innerWidth < 950) {
+            height = 250;
+            shift = height/path.length*0.2;
+            font_size = 1.2;
+        }
+
+        if(window.innerWidth < 500) {
+            shift = height/path.length*0.2;
+            shift_date = width/3;
+            font_size = 0.7;
+        }
+
+        const canvas = canvasRef.current;
+        canvas.width = width * 2;
+        canvas.height = height * 2;
+        canvas.style.width = `${width}px`;
+        canvas.style.height = `${height}px`;
+
+        const context = canvas.getContext('2d');
+        context.scale(2, 2);
+        context.lineCap = 'round';
+        context.fillStyle = '#05caa5';
+        context.strokeStyle = '#05caa5';
+        context.lineWidth = 5;
+        context.font = `${font_size*1.2}em Roboto`;
+
+
+        let pos = [width/3, height*0.2];
+        let last = pos[1];
+        path.map(({ date, primary, secondary }) => {
+            context.beginPath();
+            context.arc(pos[0], pos[1], 10, 0, 2 * Math.PI);
+            context.fill();
+            context.moveTo(pos[0], last);
+            context.lineTo(pos[0], pos[1]);
+            context.stroke();
+
+            context.fillText(date, pos[0]-shift_date, pos[1]+5);
+            context.fillText(primary, pos[0]+width/8, pos[1]+5);
+            context.fillStyle = '#bbbbbb';
+            context.font = `${font_size}em Roboto`;
+            context.fillText(secondary, pos[0]+width/6, pos[1]+shift);
+            context.fillStyle = '#05caa5';
+            context.font = `${font_size*1.2}em Roboto`;
+
+            last = pos[1];
+            pos[1] += (height*0.8-height*0.2)/(path.length-1);
+        })
+    }
+
+    setTimeout(draw, 600);
+    draw.last_draw = new Date();
+
+    useEffect(() => {
+        window.addEventListener('resize', draw);
+        return _ => {window.removeEventListener('resize', draw)};
+    }, []);
+
+    return (
+        <div className="container-career">
+            <section className='black-section-career'>
+                <header>
+                    <div>
+                        <hr></hr>
+                    </div>
+                    <div>
+                        Career
+                    </div>
+                </header>
+                <article>
+                    <canvas ref={canvasRef} />
+                </article>
+                <div className='achievements-header'>
+                    <div><hr></hr></div>
+                    <div>Achievements</div>
+                    <div><hr></hr></div>
+                </div>
+                <div className='achievements'>
+                    <ul>
+                        {achievements.map(({ id, title }) => <li key={id}>{title}</li>)}
+                    </ul>
+                </div>
+            </section>
+        </div>
     );
 }
 

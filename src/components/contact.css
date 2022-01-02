@@ -8,13 +8,13 @@
 .black-section-contact {
     width: 80%;
     margin: auto;
-    min-height: 1200px;
+    min-height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
 
-.black-section-contact > header {
+.black-section-contact>header {
     font-size: 0.5em;
     margin-top: 0.6em;
     flex-grow: 1;
@@ -22,7 +22,7 @@
     justify-content: space-evenly;
 }
 
-.black-section-contact > header div:nth-child(2) {
+.black-section-contact>header div:nth-child(2) {
     font-size: 1em;
     flex-grow: 1;
     text-align: right;
@@ -31,14 +31,14 @@
     justify-content: center;
 }
 
-.black-section-contact > header div:nth-child(1) {
+.black-section-contact>header div:nth-child(1) {
     flex-grow: 9;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.black-section-contact > header div:nth-child(1) hr {
+.black-section-contact>header div:nth-child(1) hr {
     display: block;
     height: 1px;
     width: 100%;
@@ -47,37 +47,47 @@
     background-color: #05caa5;
 }
 
-.black-section-contact > article {
-    font-size: 0.22em;
-    flex-grow: 2;
-    text-align: justify;
-    padding: 1em;
-}
-
-.achievements-header {
-    font-size: 0.5em;
-    flex-grow: 1;
+.black-section-contact section {
+    flex-grow: 6;
+    width: 40%;
+    margin: auto;
     display: flex;
     justify-content: space-evenly;
 }
 
-.achievements-header > div {
+.black-section-contact section .FaLinkedin {
+    color: black;
+}
+
+footer {
     flex-grow: 1;
     text-align: center;
-}
-
-.achievements-header  hr {
-    display: block;
-    height: 1px;
-    flex-grow: 4;
-    width: 100%;
-    border-radius: 5px;
-    border: 2px solid #05caa5;
-    background-color: #05caa5;
-}
-
-.achievements {
-    flex-grow: 2;
+    font-size: 0.12em;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 1440px) {
+    .black-section-contact {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 1220px) {
+    .black-section-contact {
+        min-height: 230px;
+    }
+    footer {
+        font-size: 0.15em;
+    }
+}
+
+@media (max-width: 950px) {
+    .black-section-contact {
+        min-height: 150px;
+    }
+    footer {
+        font-size: 0.15em;
+    }
 }

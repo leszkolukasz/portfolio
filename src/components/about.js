@@ -1,6 +1,6 @@
 import { DiPython, DiGit, DiLinux } from "react-icons/di";
 import { CgCPlusPlus } from "react-icons/cg";
-import './about.css'
+import './about.css';
 
 function About() {
     return (
