@@ -55,8 +55,13 @@
     justify-content: space-evenly;
 }
 
-.black-section-contact section .FaLinkedin {
-    color: black;
+.black-section-contact section a {
+    transition: color 0.5s;
+}
+
+.black-section-contact section a:hover {
+    transition: color 0.5s;
+    color: #0b4646;
 }
 
 footer {

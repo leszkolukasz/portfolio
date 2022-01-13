@@ -8,11 +8,11 @@ import Contact from './components/contact.js';
 function App() {
   return (
     <>
-    <Header/>
-    <About/>
-    <Career/>
-    <Projects/>
-    <Contact/>
+      <Header/>
+      <About/>
+      <Career/>
+      <Projects/>
+      <Contact/>
     </>
   );
 }

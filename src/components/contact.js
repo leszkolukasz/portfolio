@@ -15,7 +15,7 @@ function Contact() {
                     </div>
                 </header>
                 <section>
-                    <a href='https://www.linkedin.com/in/leszkolukasz/github' target='_blank'><FaLinkedin  style={{height: '0.6em'}}/></a>
+                    <a href='https://www.linkedin.com/in/leszkolukasz/' target='_blank'><FaLinkedin  style={{height: '0.6em'}}/></a>
                     <a href='https://github.com/leszkolukasz' target='_blank'><FaGithub  style={{height: '0.6em'}}/></a>
                     <a href='mailto:leszko.lucas@gmail.com' target='_blank'><IoIosMail style = {{height: '0.8em', position: 'relative', top: '0.12em'}} /></a>
                 </section>

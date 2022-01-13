@@ -4,8 +4,8 @@ import './career.css';
 
 function Career() {
     const [achievements, setAchievements] = useState([
-        { id: 1, title: '1st place in the 1st round of the 28th Polish Olympiad in Informatics' },
-        { id: 2, title: 'Finalist of the 4th edition of the Jagiellonian Mathematics Tournament' }
+        { id: 1, title: '1st place (ex aequo) in the 1st round of the 28th Polish Olympiad in Informatics' },
+        { id: 2, title: 'Finalist of the 4th edition of the Jagiellonian Mathematics Tournament' },
     ]);
 
     const [path, setPath] = useState([

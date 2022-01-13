@@ -13,9 +13,35 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
     <title>Łukasz Leszko | A programmer for fun</title>
+
+    <style>
+      #loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 250vh;
+        background-color: #1d1d1d;
+        z-index: 100;
+        border-bottom: 5px solid #05caa5;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id='loader'></div>
     <div id="root"></div>
+  </div>
+  <script src='https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js'></script>
+  <script>
+      anime({
+        targets: '#loader',
+        height: '0%',
+        duration: 2000,
+        delay: 500,
+        easing: 'easeInOutQuad'
+      });
+    //setTimeout(() => {console.log(loader);loader.style.height = '0%'}, 5000);
+  </script>
   </body>
 </html>

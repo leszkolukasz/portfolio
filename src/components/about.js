@@ -24,10 +24,10 @@ function About() {
                 <div><hr></hr></div>
             </div>
             <div className='skills'>
-                <DiPython/>
-                <CgCPlusPlus/>
-                <DiGit/>
-                <DiLinux style = {{height: "0.85em"}}/>
+                <DiPython title='Python'/>
+                <CgCPlusPlus title='C++'/>
+                <DiGit title='Git'/>
+                <DiLinux title='Linux' style = {{height: "0.85em"}}/>
             </div>
         </section>
     );

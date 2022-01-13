@@ -82,6 +82,15 @@
     justify-content: space-evenly;
 }
 
+.skills * {
+    transition: color 0.5s;
+}
+
+.skills *:hover {
+    transition: color 0.5s;
+    color: #209292;
+}
+
 @media (max-width: 650px) {
     .white-section-about {
         min-height: 400px;
