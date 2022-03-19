@@ -103,6 +103,15 @@
     padding: 0.2em 0;
 }
 
+a {
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #39f5d2;
+}
+
 @media (max-width: 14400px) {
     .achievements>ul {
         padding-left: 15%;

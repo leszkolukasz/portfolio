@@ -4,8 +4,15 @@ import './career.css';
 
 function Career() {
     const [achievements, setAchievements] = useState([
-        { id: 1, title: '1st place (ex aequo) in the 1st round of the 28th Polish Olympiad in Informatics' },
-        { id: 2, title: 'Finalist of the 4th edition of the Jagiellonian Mathematics Tournament' },
+        { id: 1, title: '1st place (ex aequo) in the 1st round of the 28th Polish Olympiad in Informatics', link: 'https://oi.edu.pl/l/28oi_1etap_wyniki/'},
+        { id: 2, title: 'Distinction in the 1st round of the 28th Polish Olympiad in Informatics', link: 'https://oi.edu.pl/l/28oi_1etap_wyroznieni/'},
+        { id: 3, title: 'Finalist of the 4th edition of the Jagiellonian Mathematics Tournament', link: 'https://jtm.matinf.uj.edu.pl/pictures/finalisciJTMIV.htm'},
+        
+    ]);
+
+    const [activities, setActivities] = useState([
+        { id: 1, title: 'Open Source contributor (Libre Office)', link: 'https://www.libreoffice.org/about-us/credits/'},
+        { id: 2, title: 'Competitive programmer (title of candidate master on Codeforces)', link: 'https://codeforces.com/profile/Whistleroosh'}
     ]);
 
     const [path, setPath] = useState([
@@ -106,7 +113,17 @@ function Career() {
                 </div>
                 <div className='achievements'>
                     <ul>
-                        {achievements.map(({ id, title }) => <li key={id}>{title}</li>)}
+                        {achievements.map(({ id, title, link }) => <li key={id}>{title} <a href={link}>&lt;link&gt;</a></li>)}
+                    </ul>
+                </div>
+                <div className='achievements-header'>
+                    <div><hr></hr></div>
+                    <div>Activities</div>
+                    <div><hr></hr></div>
+                </div>
+                <div className='achievements'>
+                    <ul>
+                        {activities.map(({ id, title, link }) => <li key={id}>{title} <a href={link}>&lt;link&gt;</a></li>)}
                     </ul>
                 </div>
             </section>
