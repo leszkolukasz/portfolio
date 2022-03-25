@@ -7,3 +7,9 @@
 table {
     font-size: 25px;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
