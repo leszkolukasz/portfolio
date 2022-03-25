@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Hello world</title>
+  <meta name="description" content="description">
+  <meta name="author" content="author">
+
+  <base href="../">
+
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/booking.css">
+</head>
+
+<body>
+    <nav>
+        <figure>
+          <a href="src/index.html">
+            <div>Logo</div>
+          </a>
+        </figure>
+        <a href="src/index.html">
+            <div>Wycieczki lotnicze</div>
+        </a>
+        <a href="src/index.html">
+            <div>Wycieczki autokarowe</div>
+        </a>
+        <a href="src/index.html">
+            <div>Moje kotno</div>
+        </a>
+    </nav>
+
+    <section class="container">
+        <form action="action.php">
+            <label for="first_name">Imie: </label><br>
+            <input type="text" id="first_name" name="first_name"><br>
+            <label for="last_name">Nazwisko: </label><br>
+            <input type="text" id="last_name" name="last_name"><br>
+            <label for="phone">Nr telefonu: </label><br>
+            <input type="tel" id="phone" name="phone"><br>
+            <label for="email">Adres email: </label><br>
+            <input type="email" id="email" name="email"><br>
+            <label for="address">Adres zamieszkania:</label><br>
+            <input type="text" id="address" name="address"><br>
+            <button type="submit" value="Rezerwuj">Rezerwuj</button>
+          </form>
+    </section>
+
+    <section>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Ilość osób</th>
+            <th scope="col">Cena</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>1000zł</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>2000zł</td>
+          </tr>
+          <tr>
+            <td>3-10</td>
+            <td>10000zł</td>
+          </tr>
+          <tr>
+            <td>&gt;10</td>
+            <td>20000zł</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer>
+        <div>Biuro podrózy, 2022</div>
+        <a href="src/index.html">
+            <div>O firmie</div>
+        </a>
+        <a href="src/index.html">
+            <div>Polityka prywatności</div>
+        </a>
+        <a href="src/index.html">
+            <div>Kontakt</div>
+        </a>
+    </footer>
+</body>
+</html>
