@@ -35,21 +35,24 @@
 
         <section class="container">
             <section>
-                <form action="action.php">
-                    <label for="first_name">Imie:
-                    </label><br>
-                    <input type="text" id="first_name" name="first_name"><br>
-                    <label for="last_name">Nazwisko:
-                    </label><br>
-                    <input type="text" id="last_name" name="last_name"><br>
-                    <label for="phone">Nr telefonu:
-                    </label><br>
-                    <input type="tel" id="phone" name="phone"><br>
-                    <label for="email">Adres email:
-                    </label><br>
-                    <input type="email" id="email" name="email"><br>
-                    <label for="address">Adres zamieszkania:</label><br>
-                    <input type="text" id="address" name="address"><br>
+                <form novalidate>
+                    <label for="first_name">Imie:</label><br>
+                    <input type="text" id="first_name" name="first_name">
+                    <span class="error" aria-live="polite"></span><br>
+
+                    <label for="last_name">Nazwisko:</label><br>
+                    <input type="text" id="last_name" name="last_name">
+                    <span class="error" aria-live="polite"></span><br>
+
+                    <label for="email">Adres email:</label><br>
+                    <input type="email" id="email" name="email">
+                    <span class="error" aria-live="polite"></span><br>
+
+                    <label for="phone">Nr telefonu:</label><br>
+                    <input type="tel" id="phone" name="phone">
+                    <span class="error" aria-live="polite"></span><br>
+
+
                     <button type="submit" value="Rezerwuj">Rezerwuj</button>
                 </form>
             </section>
@@ -96,4 +99,6 @@
             </a>
         </footer>
     </body>
+
+    <script type="module" src="../scripts/validate.mjs"></script>
 </html>

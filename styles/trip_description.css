@@ -24,7 +24,7 @@ ul.dashed > li:before {
 }
 
 .button-bar {
-    margin: 50px 0px;
+    margin: 50px 0;
     height: 35px;
     display: flex;
     justify-content: space-between;

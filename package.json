@@ -10,5 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "html-validate": "^6.5.0"
+  },
+  "dependencies": {
+    "http-serve": "^1.0.1"
   }
 }
