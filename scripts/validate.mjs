@@ -41,7 +41,17 @@ form.addEventListener('submit', function (event) {
         event.preventDefault();
 
     else {
-        document.body.innerHTML += '<section id="summary-container"><div id="summary"><span>Imię: </span><span>Nazwisko: </span><span>Email: </span><span>Telefon: </span><button>OK</button></div></section>';
+        document.body.innerHTML += `
+            <section id="summary-container">
+                <div id='summary'>
+                    <span>Imię: ${first_name.value}</span>
+                    <span>Nazwisko: ${last_name.value}</span>
+                    <span>Email: ${email.value}</span>
+                    <span>Telefon: ${phone.value}</span>
+                    <button onclick="document.body.removeChild(document.getElementById('summary-container'))">OK</button>
+                </div>
+            </section>
+        `;
         setTimeout(() => {document.body.removeChild(document.getElementById('summary-container'))}, 15000);
     }
 });
