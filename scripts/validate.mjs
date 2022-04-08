@@ -12,7 +12,7 @@ const email_error = document.querySelector('#email + span.error');
 const phone = document.getElementById('phone');
 const phone_error = document.querySelector('#phone + span.error');
 
-Array.from(form.elements).forEach((input) => {
+/*Array.from(form.elements).forEach((input) => {
     if (input.type !== "submit") {
         input.addEventListener('focus', function (event) {
             input.className += ' focused';
@@ -21,6 +21,22 @@ Array.from(form.elements).forEach((input) => {
             input.className = '';
         });
     }
+});*/
+
+form.addEventListener('focusin', function (event) {
+    if (event.target.tagName != 'INPUT')
+        return;
+
+    event.target.className += ' focused';
+    event.stopPropagation();
+});
+
+form.addEventListener('focusout', function (event) {
+    if (event.target.tagName != 'INPUT')
+        return;
+
+    event.target.className = '';
+    event.stopPropagation();
 });
 
 form.addEventListener('submit', function (event) {
