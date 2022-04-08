@@ -12,8 +12,6 @@ const email_error = document.querySelector('#email + span.error');
 const phone = document.getElementById('phone');
 const phone_error = document.querySelector('#phone + span.error');
 
-
-
 Array.from(form.elements).forEach((input) => {
     if (input.type !== "submit") {
         input.addEventListener('focus', function (event) {
@@ -24,7 +22,6 @@ Array.from(form.elements).forEach((input) => {
         });
     }
 });
-
 
 form.addEventListener('submit', function (event) {
     let error = false;
