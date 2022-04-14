@@ -11,7 +11,7 @@ function Career() {
     ]);
 
     const [activities, setActivities] = useState([
-        { id: 1, title: 'Open Source contributor (Libre Office)', link: 'https://www.libreoffice.org/about-us/credits/'},
+        { id: 1, title: 'Open Source contributor (Libre Office)', link: 'https://gerrit.libreoffice.org/c/core/+/131711'},
         { id: 2, title: 'Competitive programmer (title of candidate master on Codeforces)', link: 'https://codeforces.com/profile/Whistleroosh'}
     ]);
 
