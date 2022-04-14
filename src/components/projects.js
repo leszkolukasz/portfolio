@@ -11,6 +11,9 @@ function Projects() {
                     <hr></hr>
                 </div>
             </header>
+            <span style={{fontSize:"0.35em", marginTop: "30px"}}>
+                Coming soon! For now check my github repo.
+            </span>
         </section>
     );
 }
