@@ -1,0 +1,54 @@
+extends template/template.pug 
+
+block head_styles
+  link(rel='stylesheet' href='/styles/global.css')
+  link(rel='stylesheet' href='/styles/index.css')
+
+block content
+  section.container
+    // Offer
+    section.offer
+      - let new_offers = offers // Inaczej nie dziala
+      each offer, idx in new_offers
+        article 
+          img.main-image(src='/img/mountain.jpg' alt='Mountain')
+          .spacer
+          div
+            a(href=`/trip-description/${idx+1}`)
+              h2 #{offer.name}
+            p #{offer.short_description}
+            div
+              p= `Cena: ${offer.price}`
+              a(href=`/booking/${idx+1}`) Zarezerwuj &gt;&gt;
+    .spacer
+    // Sidebar
+    section.sidebar
+      section.promotions-bar
+        h2 Promocje
+        .promotions
+          div
+            h4 G&oacute;ry wysokie
+            |             1-13 lutego 
+            br
+            br
+            a(href='/booking') Zarezerwuj &gt;&gt;
+          div
+            h4 G&oacute;ry wysokie
+            |             1-13 lutego 
+            br
+            br
+            a(href='/booking') Zarezerwuj &gt;&gt;
+          div
+            h4 G&oacute;ry wysokie
+            |             1-13 lutego 
+            br
+            br
+            a(href='/booking') Zarezerwuj &gt;&gt;
+      section.tips
+        h2 Porady
+        div
+          | Co zabra&cacute; na wycieczke?
+        div
+          | Co zabra&cacute; na wycieczke?
+        div
+          | Co zabra&cacute; na wycieczke?

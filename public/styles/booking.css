@@ -30,6 +30,12 @@
     width: 50%;
 }
 
+#prices {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 table {
     font-size: 25px;
 }

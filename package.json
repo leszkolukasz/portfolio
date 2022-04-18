@@ -1,17 +1,29 @@
 {
-  "name": "lab2",
+  "name": "biuro_podrozy",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Strona biura podrozy",
+  "author": "Łukasz Leszko",
+  "license": "MIT",
+  "watch": {
+    "lint": "scripts/*.mjs"
   },
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "start": "nodemon app.mjs",
+    "start2": "npx http-serve -c-1",
+    "develop": "npm-watch",
+    "lint": "./lint.sh"
+  },
   "devDependencies": {
-    "html-validate": "^6.5.0"
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "html-validate": "^6.5.0",
+    "nodemon": "^2.0.15",
+    "npm-watch": "^0.11.0"
   },
   "dependencies": {
-    "http-serve": "^1.0.1"
+    "express": "^4.17.3",
+    "http-serve": "^1.0.1",
+    "pug": "^3.0.2"
   }
 }
