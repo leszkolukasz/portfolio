@@ -12,25 +12,28 @@ block content
         img.mountain-img(src='/img/mountain.jpg' alt='Mountains')
       section.description
         article
-          h1 #{offer.name}
-          p #{offer.short_description}
+          h1 #{offer.nazwa}
+          p #{offer.krotki_opis}
         article
           h2 Jeszcze jeden nag&lstrok;&oacute;wek
-          p #{offer.long_description}
+          p #{offer.opis}
     // Detailed info
     section
       article
         h2 Istotne informacje
         ul.dashed
-          each info of offer.information
-            li= info
-          li= `Cena wynosi ${offer.price}`
-      article
-        - let plan = (week === undefined ? offer.general_plan : offer.detailed_plan[week-1]);
-        h2= `Program wycieczki ${week !== undefined ? `w tygodniu ${week}` : ''}`
-        ol
-          each info of plan
-            li= info
+          //each info of offer.information
+          //  li= info
+          li= `Data początku: ${offer.data_poczatku}`
+          li= `Data początku: ${offer.data_konca}`
+          li= `Cena wynosi ${offer.cena}`
+          li= `Ilość miejsc: ${offer.dostepne_miejsca}`
+      //article
+      //  - let plan = (week === undefined ? offer.general_plan : offer.detailed_plan[week-1]);
+      //  h2= `Program wycieczki ${week !== undefined ? `w tygodniu ${week}` : ''}`
+      //  ol
+      //    each info of plan
+      //     li= info
     section.button-bar
       a(href='/')
         .button &lt; Powr&oacute;t

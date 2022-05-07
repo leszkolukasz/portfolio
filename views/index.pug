@@ -8,17 +8,19 @@ block content
   section.container
     // Offer
     section.offer
+      h2 #{no_offers_text}
       - let new_offers = offers // Inaczej nie dziala
       each offer, idx in new_offers
         article 
           img.main-image(src='/img/mountain.jpg' alt='Mountain')
           .spacer
           div
-            a(href=`/trip-description/${idx+1}`)
-              h2 #{offer.name}
-            p #{offer.short_description}
+            a(href=`/trip-description/${offer.id}`)
+              h2 #{offer.nazwa}
+            p #{offer.krotki_opis}
             div
-              p= `Cena: ${offer.price}`
+              p= `Cena: ${offer.cena}`
+              p= `Data: ${offer.data_poczatku}`
               a(href=`/booking/${idx+1}`) Zarezerwuj &gt;&gt;
     .spacer
     // Sidebar

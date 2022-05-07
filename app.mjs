@@ -1,12 +1,33 @@
 import express from 'express'
 import { query } from 'express';
+const { database, Wycieczka, Zgloszenie } = await import('./database.mjs');
 
 const app = express();
 
 app.set('view engine', 'pug');
 app.set('views', './views');
 
-let offers = [
+async function getOffers() {
+    const db_data = await Wycieczka.findAll({
+        order: [
+            ['data_poczatku', 'ASC']
+        ]
+    });
+    let offers = [];
+    db_data.forEach(record => offers.push(record.dataValues));
+    
+    return offers;
+}
+
+async function getTrip(id) {
+    const trip = await Wycieczka.findByPk(id);
+    if (trip === null)
+        throw 'Incorrect trip id'
+    
+    return trip.dataValues;
+}
+
+/*let offers = [
     {
         'name': 'Górska wycieczka',
         'price': 1000,
@@ -56,44 +77,54 @@ app.use((req, res, next) => {
         res.locals.maintenance_text = 'No maintenance';
     
     next();
-});
+}); */
 
 // PUB templates //
 
-app.get('/', (req, res) => {
-    res.status(200).render('index', {'offers': offers});
+app.get('/', async (req, res) => {
+    const offers = await getOffers();
+    const no_offers_text = offers.length == 0 ? "No offers" : "";
+    res.status(200).render('index', {'offers': offers, 'no_offers_text': no_offers_text});
 });
 
-app.get('/trip-description', (req, res, next) => {
+/*app.get('/trip-description', (req, res, next) => {
     if (Object.keys(req.query).length > 0 && req.query.id === undefined)
         res.status(400).send('Trip ID required');
     else if (req.query.id !== undefined)
         res.status(200).render('trip_description', {'offer': offers[req.query.id-1], 'week': req.query.week});
     else
         next();
+});*/
+
+app.get('/trip-description/:id', async (req, res) => {
+    try {
+        res.status(200).render('trip_description', {'offer': await getTrip(req.params.id)});
+    } catch (err) {
+        res.status(400).send(err);
+    }
 });
 
-app.get('/trip-description/:id', (req, res) => {
-    res.status(200).render('trip_description', {'offer': offers[req.params.id-1], 'week': req.params.week});
-});
-
-app.get('/trip-description/:id/week/:week', (req, res) => {
+/*app.get('/trip-description/:id/week/:week', (req, res) => {
     res.status(200).render('trip_description', {'offer': offers[req.params.id-1], 'week': req.params.week});
 });
 
 app.get('/trip-description', (req, res, next) => {
     res.status(400).send('Incorrect trip URL');
-});
+});*/
 
-app.get('/booking/:id', (req, res) => {
-    res.status(200).render('booking', {'offer': offers[req.params.id-1]});
+app.get('/booking/:id', async (req, res) => {
+    try {
+        res.status(200).render('booking', {'offer': await getTrip(req.params.id)});
+    } catch (err) {
+        res.status(400).send(err);
+    }
 });
 
 app.get('/booking', (req, res, next) => {
     res.status(400).send('Incorrect booking URL');
 });
 
-///////////////////
+/*
 
 app.get('/example-template', (req, res) => {
     res.status(200).render('example');
@@ -116,7 +147,7 @@ app.post('/strona-testowa', (req, res) => {
 
 app.get('/strona-testowa-timeout', (req, res) => {
     setTimeout(() => res.status(200).send("Hello world from GET"), 10000);
-});
+}); */
 
 // Static files
 app.use(express.static('public'));
