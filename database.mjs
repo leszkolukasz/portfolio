@@ -103,9 +103,9 @@ Zgloszenie.belongsTo(Wycieczka);
 
 try {
   // Sprawdzenie poprawności połączenia (authenticate; co się dzieje, gdy błąd?)
-  console.log('Nawiązuję połączenie z bazą...');
+  console.log('Connecting to database...');
   await database.authenticate();
-  console.log('Udało się.');
+  console.log('Done.');
 } catch (err) {
   // Nawiązywanie połączenia i synchronizacja mogły się nie udać, co wtedy?
   console.error('Unable to connect to the database:', err);
@@ -114,10 +114,10 @@ try {
 try {
   // Jeśli modele zostały zmodyfikowane, to należy zmodyfikować tabele w bazie tak, by były zgodne.
   // Co się stanie z danymi? (sync)
-  console.log('Synchronizuję modele z zawartością bazy...');
+  console.log('Synchronizing database...');
   await database.sync();
   //await database.sync({force: true});
-  console.log('Udało się.');
+  console.log('Done.');
 } catch (err) {
   console.error('Unable to sync the database:', err);
 }
