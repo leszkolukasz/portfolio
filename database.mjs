@@ -2,12 +2,12 @@ import { Sequelize, DataTypes } from 'sequelize';
 
 // Połączenie z bazą danych - lepiej użyć Postgresa (zadanie 0, patrz również niżej)
 // Czy to może skończyć się błędem?
-// const database = new Sequelize('sqlite::memory:');
-const database = new Sequelize('test', 'login', 'password', {
+const database = new Sequelize('sqlite:test.db');
+/*const database = new Sequelize('test', 'login', 'password', {
   host: 'localhost',
   dialect: 'postgres',
   logging: false
-});  
+});*/  
 
 // Zadanie 1
 const Wycieczka = database.define('Wycieczka', {
