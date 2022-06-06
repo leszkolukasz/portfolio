@@ -29,7 +29,7 @@ try {
     console.log('Could not add trip to database', err);
 }
 
-try {
+/*try {
     await Zgloszenie.create({
         imie: "John",
         nazwisko: "Smith",
@@ -48,4 +48,4 @@ try {
     console.log('Bookings added to database');
 } catch (err) {
     console.log('Could not add booking to database', err);
-}
+}*/

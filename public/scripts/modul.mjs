@@ -1,1 +1,0 @@
-export let komunikat = "Hello world";

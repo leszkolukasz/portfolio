@@ -8,26 +8,27 @@ block content
   section.container
     section
       h2 #{offer.nazwa}
-      form(novalidate='')
+      ul#error_list
+        each err of booking_error_msg
+          li= err.msg
+      br
+      br
+      form(novalidate='' action=`/booking/${offer.id}` method='POST')
         label(for='first_name') Imie:
         br
         input#first_name(type='text' name='first_name')
-        span.error(aria-live='polite')
         br
         label(for='last_name') Nazwisko:
         br
         input#last_name(type='text' name='last_name')
-        span.error(aria-live='polite')
         br
         label(for='email') Adres email:
         br
         input#email(type='email' name='email')
-        span.error(aria-live='polite')
         br
-        label(for='phone') Nr telefonu:
+        label(for='how_many') How many seats:
         br
-        input#phone(type='tel' name='phone')
-        span.error(aria-live='polite')
+        input#how_many(type='number' name='how_many')
         br
         button(type='submit' value='Rezerwuj') Rezerwuj
     section#prices

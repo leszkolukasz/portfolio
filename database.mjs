@@ -2,12 +2,12 @@ import { Sequelize, DataTypes } from 'sequelize';
 
 // Połączenie z bazą danych - lepiej użyć Postgresa (zadanie 0, patrz również niżej)
 // Czy to może skończyć się błędem?
-const database = new Sequelize('sqlite:test.db');
-/*const database = new Sequelize('test', 'login', 'password', {
+// const database = new Sequelize('sqlite:test.db');
+const database = new Sequelize('test', 'login', 'password', {
   host: 'localhost',
   dialect: 'postgres',
   logging: false
-});*/  
+});
 
 // Zadanie 1
 const Wycieczka = database.define('Wycieczka', {
@@ -47,7 +47,7 @@ const Wycieczka = database.define('Wycieczka', {
   dostepne_miejsca: {
     type: DataTypes.INTEGER,
     validate: {
-      min: 1
+      min: 0
     }
   }
 }, {
@@ -88,6 +88,34 @@ const Zgloszenie = database.define('Zgloszenie', {
   timestamps: false
 });
 
+const User = database.define("User", {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  last_name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
+    validate: {
+      isEmail: true
+    }
+  },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+});
+
 // Zadanie 3
 // Tu dodaj kod odpowiedzialny za utworzenie relacji pomiędzy modelami db.Wycieczka i db.Zgloszenie
 
@@ -95,6 +123,11 @@ Wycieczka.hasMany(Zgloszenie, {
   onDelete: 'CASCADE'
 });
 Zgloszenie.belongsTo(Wycieczka);
+
+User.hasMany(Zgloszenie, {
+  onDelete: 'CASCADE'
+});
+Zgloszenie.belongsTo(User);
 
 // Zadania 4-6 w innych plikach
 
@@ -122,4 +155,4 @@ try {
   console.error('Unable to sync the database:', err);
 }
 
-export { database, Wycieczka, Zgloszenie };
+export { database, Wycieczka, Zgloszenie, User };
