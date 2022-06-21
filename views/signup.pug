@@ -1,0 +1,38 @@
+extends template/template.pug 
+
+block head_styles
+  link(rel='stylesheet' href='/styles/global.css')
+  link(rel='stylesheet' href='/styles/booking.css')
+
+block content
+  section.container
+    section
+      h2 Sign up
+      h3(style='color:green') #{success_msg}
+      ul#error_list
+        each err of error_msg
+          li= err.msg
+      br
+      br
+      form(novalidate='' action=`/signup` method='POST')
+        label(for='first_name') Imie:
+        br
+        input#first_name(type='text' name='first_name')
+        br
+        label(for='last_name') Nazwisko:
+        br
+        input#last_name(type='text' name='last_name')
+        br
+        label(for='email') Adres email:
+        br
+        input#email(type='email' name='email')
+        br
+        label(for='password') Password:
+        br
+        input#password(type='password' name='password')
+        br
+        label(for='password_again') Password again:
+        br
+        input#password_again(type='password' name='password_again')
+        br
+        button(type='submit' value='sing_up') Sing up

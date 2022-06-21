@@ -1,0 +1,21 @@
+extends template/template.pug 
+
+block head_styles
+  link(rel='stylesheet' href='/styles/global.css')
+  link(rel='stylesheet' href='/styles/myaccount.css')
+
+block content
+  section.container
+    h1= `Welcome ${user.name}`
+    section#reservations
+        h2 #{no_reservations_text}
+        - let new_reservations = reservations // Inaczej nie dziala
+        section
+            each reservation, idx in new_reservations
+                div.reservation
+                    p= `Name: ${reservation.trip.nazwa}`
+                    p= `Data: ${reservation.trip.data_poczatku}`
+                    p= `How many: ${reservation.reservation.liczba_miejsc}`
+    section
+      form(novalidate='' action=`/signout` method='GET')
+        button(type='submit' value='signout') Sign out

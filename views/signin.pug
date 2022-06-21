@@ -1,0 +1,29 @@
+extends template/template.pug 
+
+block head_styles
+  link(rel='stylesheet' href='/styles/global.css')
+  link(rel='stylesheet' href='/styles/booking.css')
+
+block content
+  section.container
+    section
+      h2 Sign in
+      h3(style='color:green') #{success_msg}
+      ul#error_list
+        each err of error_msg
+          li= err.msg
+      br
+      br
+      form(novalidate='' action=`/signin` method='POST')
+        label(for='email') Email:
+        br
+        input#email(type='email' name='email')
+        br
+        label(for='email') Password:
+        br
+        input#password(type='password' name='password')
+        br
+        button(type='submit' value='Sign in') Sign in
+    section#prices
+      form(novalidate='' action=`/signup` method='GET')
+        button(type='submit' value='Sign up') Sign up

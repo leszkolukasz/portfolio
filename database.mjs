@@ -1,7 +1,5 @@
 import { Sequelize, DataTypes } from 'sequelize';
 
-// Połączenie z bazą danych - lepiej użyć Postgresa (zadanie 0, patrz również niżej)
-// Czy to może skończyć się błędem?
 // const database = new Sequelize('sqlite:test.db');
 const database = new Sequelize('test', 'login', 'password', {
   host: 'localhost',
@@ -9,7 +7,6 @@ const database = new Sequelize('test', 'login', 'password', {
   logging: false
 });
 
-// Zadanie 1
 const Wycieczka = database.define('Wycieczka', {
   id: {
     type: DataTypes.INTEGER,
@@ -55,7 +52,6 @@ const Wycieczka = database.define('Wycieczka', {
   timestamps: false,
 });
 
-// Zadanie 2
 const Zgloszenie = database.define('Zgloszenie', {
   id: {
     type: DataTypes.INTEGER,
@@ -116,40 +112,23 @@ const User = database.define("User", {
   },
 });
 
-// Zadanie 3
-// Tu dodaj kod odpowiedzialny za utworzenie relacji pomiędzy modelami db.Wycieczka i db.Zgloszenie
-
 Wycieczka.hasMany(Zgloszenie, {
   onDelete: 'CASCADE'
 });
 Zgloszenie.belongsTo(Wycieczka);
 
-User.hasMany(Zgloszenie, {
-  onDelete: 'CASCADE'
-});
-Zgloszenie.belongsTo(User);
-
-// Zadania 4-6 w innych plikach
-
-// ========================================
-// Zadanie 0 - kontynuacja; proszę napisać kod poniżej, wg komentarzy
-
 try {
-  // Sprawdzenie poprawności połączenia (authenticate; co się dzieje, gdy błąd?)
   console.log('Connecting to database...');
   await database.authenticate();
   console.log('Done.');
 } catch (err) {
-  // Nawiązywanie połączenia i synchronizacja mogły się nie udać, co wtedy?
   console.error('Unable to connect to the database:', err);
 }
 
 try {
-  // Jeśli modele zostały zmodyfikowane, to należy zmodyfikować tabele w bazie tak, by były zgodne.
-  // Co się stanie z danymi? (sync)
+
   console.log('Synchronizing database...');
   await database.sync();
-  //await database.sync({force: true});
   console.log('Done.');
 } catch (err) {
   console.error('Unable to sync the database:', err);
