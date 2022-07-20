@@ -16,8 +16,9 @@ function Career() {
     ]);
 
     const [path, setPath] = useState([
-        { date: '2018 - 2021', primary: 'Liceum im. Stefana Batorego w Warszawie', secondary: 'profile: mathematics - physics'},
-        { date: '2021 - current', primary: 'University of Warsaw', secondary: 'bachelor\'s degree: Computer Science'}
+        { date: '2022 - current', primary: 'University of Warsaw', secondary: 'bachelor\'s degree: Mathematics'},
+        { date: '2021 - current', primary: 'University of Warsaw', secondary: 'bachelor\'s degree: Computer Science'},
+        { date: '2018 - 2021', primary: 'Liceum im. Stefana Batorego w Warszawie', secondary: 'profile: mathematics - physics'}
     ]);
 
     const canvasRef = useRef(null);
@@ -28,14 +29,14 @@ function Career() {
 
         draw.last_draw = new Date();
 
-        let height = 300;
+        let height = 450;
         let width = window.innerWidth * 0.8;
         let font_size = 1;
         let shift = height/path.length*0.3;
         let shift_date = width/4;
 
         if(window.innerWidth < 950) {
-            height = 250;
+            height = 350;
             shift = height/path.length*0.2;
             font_size = 1.2;
         }
