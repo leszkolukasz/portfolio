@@ -18,7 +18,7 @@ function Header() {
                   </div>
                   <div>
                       <br/><br/>
-                      machine learning engineer | competitive programmer
+                      python developer | competitive programmer
                   </div>
               </div>
               <div className='avatar'>
