@@ -35,7 +35,7 @@ export const menuLinks: Array<{ title: string; path: string }> = [
   {
     title: "CV",
     path: "/cv.txt",
-  }
+  },
 ]
 
 // https://expressive-code.com/reference/configuration/

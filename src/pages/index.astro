@@ -15,44 +15,44 @@ import type { Skill } from "@/types"
 import SkillList from "@/components/SkillList.astro"
 
 const radcodeSkills: Skill[] = [
-  { title: "React", icon: "react"},
-  { title: "TypeScript", icon: "typescript"},
-  { title: "Solidity", icon: "solidity"},
-  { title: "Python", icon: "python"},
-  { title: "Tailwind", icon: "tailwind"},
-  { title: "PostgreSQL", icon: "postgresql"},
-  { title: "GraphQL", icon: "graphql"},
-  { title: "ChromaDB", icon: "chromadb"},
+  { title: "React", icon: "react" },
+  { title: "TypeScript", icon: "typescript" },
+  { title: "Solidity", icon: "solidity" },
+  { title: "Python", icon: "python" },
+  { title: "Tailwind", icon: "tailwind" },
+  { title: "PostgreSQL", icon: "postgresql" },
+  { title: "GraphQL", icon: "graphql" },
+  { title: "ChromaDB", icon: "chromadb" },
   { title: "Vite", icon: "vite" },
   { title: "Next.js", icon: "nextjs", color: "black" },
   { title: "Hardhat", icon: "hardhat" },
-  { title: "Pytorch", icon: "pytorch"},
-  { title: "FastAPI", icon: "fastapi"},
-  { title: "HuggingFace", icon: "huggingface"},
-  { title: "Docker", icon: "docker" }
+  { title: "Pytorch", icon: "pytorch" },
+  { title: "FastAPI", icon: "fastapi" },
+  { title: "HuggingFace", icon: "huggingface" },
+  { title: "Docker", icon: "docker" },
 ]
 
 const devbridgeSkills: Skill[] = [
   { title: "Java", icon: "java" },
   { title: "Kotlin", icon: "kotlin" },
   { title: "Spring", icon: "spring" },
-  { title: "React", icon: "react"},
-  { title: "TypeScript", icon: "typescript"},
-  { title: "Jenkins", icon: "jenkins"},
-  { title: "MondoDB", icon: "mongodb"},
+  { title: "React", icon: "react" },
+  { title: "TypeScript", icon: "typescript" },
+  { title: "Jenkins", icon: "jenkins" },
+  { title: "MondoDB", icon: "mongodb" },
   { title: "Vite", icon: "vite" },
-  { title: "Docker", icon: "docker" }
+  { title: "Docker", icon: "docker" },
 ]
 
 const cognizantSkills: Skill[] = [
   { title: "Java", icon: "java" },
   { title: "Spring", icon: "spring" },
-  { title: "React", icon: "react"},
-  { title: "TypeScript", icon: "typescript"},
-  { title: "GitHub Actions", icon: "github-actions"},
-  { title: "PostgreSQL", icon: "postgresql"},
-  { title: "Kubernetes", icon: "kubernetes"},
-  { title: "Docker", icon: "docker" }
+  { title: "React", icon: "react" },
+  { title: "TypeScript", icon: "typescript" },
+  { title: "GitHub Actions", icon: "github-actions" },
+  { title: "PostgreSQL", icon: "postgresql" },
+  { title: "Kubernetes", icon: "kubernetes" },
+  { title: "Docker", icon: "docker" },
 ]
 
 const languageSkills: Skill[] = [
@@ -80,9 +80,9 @@ const machineLearningSkills: Skill[] = [
   { title: "Sklearn", icon: "sklearn" },
 ]
 const toolSkills: Skill[] = [
-  {title: "Git", icon: "git"},
-  {title: "Docker", icon: "docker"},
-  {title: "Vite", icon: "vite"},
+  { title: "Git", icon: "git" },
+  { title: "Docker", icon: "docker" },
+  { title: "Vite", icon: "vite" },
 ]
 const operatingSystemSkills: Skill[] = [
   { title: "NixOS", icon: "nixos" },
@@ -126,7 +126,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
               <Icon name="github" class="h-6 w-6 text-foreground/75" />
             </a>
             <a href="/rss.xml" target="_blank">
-              <Icon name="rss" class="h-5 w-5 text-foreground/75"/>
+              <Icon name="rss" class="h-5 w-5 text-foreground/75" />
             </a>
           </div>
         </div>
@@ -135,14 +135,14 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 
     <Section title="About">
       <p class="text-muted-foreground">
-        My name is Łukasz Leszko and I'm currently studying Machine Learning (Master's degree) 💻 and Mathematics (Bachelor's degree) ➗ at University of Warsaw and recently earned bachelor's degree in Computer Science 🎓.
+        My name is Łukasz Leszko and I'm currently studying Machine Learning (Master's degree) 💻
+        and Mathematics (Bachelor's degree) ➗ at University of Warsaw and recently earned
+        bachelor's degree in Computer Science 🎓.
       </p>
       <p class="text-muted-foreground">
         I'm also a retired competitive programmer, gamer and keen on Linux and FOSS.
       </p>
-      <p class="text-muted-foreground">
-        My areas of interest are:
-      </p>
+      <p class="text-muted-foreground">My areas of interest are:</p>
       <ul class="ml-4 list-disc text-muted-foreground">
         <li>Programming languages (compilers, language design)</li>
         <li>Machine learning (still looking for my niche)</li>
@@ -163,14 +163,29 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
     }
 
     <Section title="Experience">
-      <Card heading="Junior Software Engineer" subheading="RadCode" date="Jul 2024 - present" subheadingHref="https://www.linkedin.com/company/11756811">
-        <SkillList skills={radcodeSkills} small/>
+      <Card
+        heading="Junior Software Engineer"
+        subheading="RadCode"
+        date="Jul 2024 - present"
+        subheadingHref="https://www.linkedin.com/company/11756811"
+      >
+        <SkillList skills={radcodeSkills} small />
       </Card>
-      <Card heading="Junior Software Engineer" subheading="Cognizant" date="Jan 2024 - Jul 2024" subheadingHref="https://www.linkedin.com/company/1680">
-        <SkillList skills={cognizantSkills} small/>
+      <Card
+        heading="Junior Software Engineer"
+        subheading="Cognizant"
+        date="Jan 2024 - Jul 2024"
+        subheadingHref="https://www.linkedin.com/company/1680"
+      >
+        <SkillList skills={cognizantSkills} small />
       </Card>
-      <Card heading="Junior Software Engineer" subheading="Devbridge" date="Jul 2023 - Dec 2023" subheadingHref="https://www.linkedin.com/company/1763794">
-        <SkillList skills={devbridgeSkills} small/>
+      <Card
+        heading="Junior Software Engineer"
+        subheading="Devbridge"
+        date="Jul 2023 - Dec 2023"
+        subheadingHref="https://www.linkedin.com/company/1763794"
+      >
+        <SkillList skills={devbridgeSkills} small />
       </Card>
     </Section>
 
