@@ -1,0 +1,21 @@
+---
+import { Icon } from "astro-icon/components"
+import Button from "./Button.astro"
+import type { Skill } from "@/types"
+
+interface Props {
+  skills: Skill[]
+  small?: boolean
+}
+
+const { skills, small } = Astro.props
+---
+<div class="flex w-5/6 flex-row flex-wrap gap-x-4 gap-y-2">
+  {
+    skills.map((skill: Skill) => (
+      <Button as="button" title={skill.title} style="pill" small={small}>
+        <Icon name={skill.icon} class="h-4 w-4" slot="icon-before" color={skill.color} />
+      </Button>
+    ))
+  }
+</div>
