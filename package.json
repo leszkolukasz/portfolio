@@ -16,31 +16,38 @@
 		"@astrojs/rss": "^4.0.11",
 		"@astrojs/sitemap": "^3.2.1",
 		"@astrojs/tailwind": "^5.1.5",
-		"@astrojs/vercel": "^8.0.2",
-		"@vercel/analytics": "^1.2.2",
+		"@astrojs/vercel": "^8.0.3",
+		"@vercel/analytics": "^1.4.1",
 		"astro": "^5.1.8",
-		"astro-expressive-code": "^0.33.5",
-		"astro-icon": "^1.1.0",
-		"clsx": "^2.1.0",
+		"astro-expressive-code": "^0.40.1",
+		"astro-icon": "^1.1.5",
+		"astro-webmanifest": "^1.0.0",
+		"clsx": "^2.1.1",
 		"mdast-util-to-string": "^4.0.0",
 		"reading-time": "^1.5.0",
 		"rehype-external-links": "^3.0.0",
-		"remark-unwrap-images": "^4.0.0",
-		"sharp": "^0.33.2",
-		"tailwind-merge": "^2.2.1",
-		"tailwindcss": "^3.4.1",
-		"typescript": "^5.4.2"
+		"remark-unwrap-images": "^4.0.1",
+		"sharp": "^0.33.5",
+		"tailwind-merge": "^2.6.0",
+		"tailwindcss": "^3.4.17",
+		"typescript": "^5.7.3"
 	},
 	"devDependencies": {
 		"@tailwindcss/aspect-ratio": "^0.4.2",
-		"@tailwindcss/typography": "^0.5.10",
-		"@typescript-eslint/parser": "^7.1.1",
-		"eslint": "^8.57.0",
+		"@tailwindcss/typography": "^0.5.16",
+		"@typescript-eslint/parser": "^7.18.0",
+		"eslint": "^8.57.1",
 		"eslint-plugin-astro": "^0.31.4",
-		"eslint-plugin-jsx-a11y": "^6.8.0",
-		"prettier": "^3.2.5",
+		"eslint-plugin-jsx-a11y": "^6.10.2",
+		"prettier": "^3.4.2",
 		"prettier-config-standard": "^7.0.0",
 		"prettier-plugin-astro": "^0.13.0",
-		"prettier-plugin-tailwindcss": "^0.5.12"
+		"prettier-plugin-tailwindcss": "^0.5.14"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"esbuild",
+			"sharp"
+		]
 	}
 }
