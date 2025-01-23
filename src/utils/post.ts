@@ -37,3 +37,17 @@ export function getUniqueTagsWithCount(
     ),
   ].sort((a, b) => b[1] - a[1])
 }
+
+/**
+ *  Note: This function doesn't filter draft posts, pass it the result of getAllPosts above to do so.
+ */
+export function groupPostsByYear(posts: CollectionEntry<"post">[]) {
+  return posts.reduce<Record<string, CollectionEntry<"post">[]>>((acc, post) => {
+    const year = post.data.publishDate.getFullYear()
+    if (!acc[year]) {
+      acc[year] = []
+    }
+    acc[year]?.push(post)
+    return acc
+  }, {})
+}

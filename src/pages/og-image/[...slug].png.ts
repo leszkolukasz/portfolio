@@ -1,6 +1,5 @@
 import RobotoMonoBold from "@/assets/fonts/roboto-mono-700.ttf"
 import RobotoMono from "@/assets/fonts/roboto-mono-regular.ttf"
-import { siteConfig } from "@/site-config"
 import { getAllPosts, getFormattedDate } from "@/utils"
 import { Resvg } from "@resvg/resvg-js"
 import type { APIContext, InferGetStaticPropsType } from "astro"

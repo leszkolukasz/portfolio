@@ -8,7 +8,8 @@ import Button from "@/components/Button.astro"
 import Pagination from "@/components/Paginator.astro"
 import PostPreview from "@/components/blog/PostPreview.astro"
 import PageLayout from "@/layouts/BaseLayout.astro"
-import { getAllPosts, getUniqueTags, sortMDByDate } from "@/utils"
+import { getAllPosts, getUniqueTags, groupPostsByYear, sortMDByDate } from "@/utils"
+import { Icon } from "astro-icon/components"
 
 export const getStaticPaths = (async ({ paginate }) => {
   const allPosts = await getAllPosts()
@@ -43,6 +44,9 @@ const paginationProps = {
     },
   }),
 }
+
+const groupedByYear = groupPostsByYear(page.data)
+const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a)
 ---
 
 <PageLayout meta={meta}>
@@ -63,18 +67,28 @@ const paginationProps = {
       </svg>
     </Button>
 
-    <h1 class="mb-6 mt-5 text-2xl font-bold">Blog</h1>
+    <div class="flex items-center gap-x-2">
+      <h1 class="mb-6 mt-5 text-2xl font-bold">Blog</h1>
+      <a href="/rss.xml" target="_blank">
+        <Icon name="rss" class="h-5 w-5 text-foreground/75" />
+      </a>
+    </div>
     {page.data.length === 0 && <p>No posts yet.</p>}
 
     {
       page.data.length > 0 && (
         <div class="grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8">
-          <section aria-label="Blog posts list">
-            <ul class="flex flex-col gap-y-4 text-start">
-              {page.data.map((p) => (
-                <PostPreview post={p} withDesc />
-              ))}
-            </ul>
+          <section aria-label="Blog posts list" class="flex flex-col gap-y-8">
+            {descYearKeys.map((yearKey) => (
+              <div>
+                <h2 class="title text-lg">{yearKey}</h2>
+                <ul class="flex flex-col gap-y-4 text-start mt-6">
+                  {groupedByYear[yearKey]?.map((p) => (
+                      <PostPreview post={p} withDesc />
+                  ))}
+                </ul>
+              </div>
+            ))}
             <Pagination {...paginationProps} />
           </section>
           {!!uniqueTags.length && (
