@@ -1,4 +1,5 @@
 @import "./admonitions.css";
+@import "./utterances.css";
 
 @tailwind base;
 @tailwind components;
