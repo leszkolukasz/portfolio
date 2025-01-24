@@ -89,7 +89,7 @@ const operatingSystemSkills: Skill[] = [
   { title: "Arch", icon: "arch" },
 ]
 
-const MAX_POSTS = 10
+const MAX_POSTS = 5
 const allPosts = await getAllPosts()
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 ---
@@ -220,27 +220,6 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
         </ul>
       </Card>
     </Section>
-
-    <!-- <Section title="Projects">
-      <div class="flex flex-col gap-y-3 sm:flex-row sm:gap-x-3 sm:gap-y-0">
-        <ProjectCard
-          href="https://www.google.com"
-          heading="Consectetur"
-          subheading="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-          imagePath="/src/assets/coming-soon.png"
-          altText="Example"
-          class="w-full sm:w-1/2"
-        />
-        <ProjectCard
-          as="div"
-          heading="Coming soon..."
-          subheading=""
-          imagePath="/src/assets/coming-soon.png"
-          altText="Lorem, ipsum dolor sit"
-          class="w-full sm:w-1/2"
-        />
-      </div>
-    </Section> -->
 
     <Section title="Certifications">
       <Card
