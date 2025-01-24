@@ -2,9 +2,6 @@ import { defineConfig } from "astro/config"
 import mdx from "@astrojs/mdx"
 import tailwind from "@astrojs/tailwind"
 import sitemap from "@astrojs/sitemap"
-import { remarkReadingTime } from "./src/utils/remarkReadingTime.ts"
-import remarkUnwrapImages from "remark-unwrap-images"
-import rehypeExternalLinks from "rehype-external-links"
 import expressiveCode from "astro-expressive-code"
 import webmanifest from "astro-webmanifest"
 import robotsTxt from "astro-robots-txt"
@@ -13,7 +10,13 @@ import icon from "astro-icon"
 import { siteConfig } from "./src/site.config"
 import fs from "fs"
 
-// import vercel from "@astrojs/vercel"
+// Remark plugins
+import remarkDirective from "remark-directive" /* Handle ::: directives as nodes */
+import { remarkAdmonitions, remarkReadingTime } from "./src/plugins"
+
+// Rehype plugins
+import rehypeExternalLinks from "rehype-external-links"
+import rehypeUnwrapImages from "rehype-unwrap-images"
 
 // https://astro.build/config
 export default defineConfig({
@@ -62,8 +65,9 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
+    remarkPlugins: [remarkReadingTime, remarkDirective, remarkAdmonitions],
     rehypePlugins: [
+      rehypeUnwrapImages,
       [
         rehypeExternalLinks,
         {
@@ -86,9 +90,6 @@ export default defineConfig({
       exclude: ["@resvg/resvg-js"],
     },
   },
-  // adapter: vercel({
-  // 	webAnalytics: { enabled: true }
-  // })
 })
 
 function rawFonts(ext: Array<string>) {

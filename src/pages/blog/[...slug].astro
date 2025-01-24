@@ -3,7 +3,7 @@ export const prerender = true
 
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro"
 
-import PostLayout from "@/layouts/BlogPost.astro"
+import BlogLayout from "@/layouts/BlogLayout.astro"
 import { getAllPosts } from "@/utils"
 
 export const getStaticPaths = (async () => {
@@ -20,6 +20,6 @@ const { entry } = Astro.props
 const { Content } = await entry.render()
 ---
 
-<PostLayout post={entry}>
+<BlogLayout post={entry}>
   <Content />
-</PostLayout>
+</BlogLayout>

@@ -28,3 +28,5 @@ export type Skill = {
   icon?: string
   color?: string
 }
+
+export type AdmonitionType = "tip" | "note" | "important" | "caution" | "warning"
