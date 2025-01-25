@@ -13,81 +13,87 @@ import { getAllPosts, sortMDByDate } from "@/utils"
 import { Icon } from "astro-icon/components"
 import type { Skill } from "@/types"
 import SkillList from "@/components/SkillList.astro"
+import { SKILLS } from "src/constants"
 
 const radcodeSkills: Skill[] = [
-  { title: "React", icon: "react" },
-  { title: "TypeScript", icon: "typescript" },
-  { title: "Solidity", icon: "solidity" },
-  { title: "Python", icon: "python" },
-  { title: "Tailwind", icon: "tailwind" },
-  { title: "PostgreSQL", icon: "postgresql" },
-  { title: "GraphQL", icon: "graphql" },
-  { title: "ChromaDB", icon: "chromadb" },
-  { title: "Vite", icon: "vite" },
-  { title: "Next.js", icon: "nextjs", color: "black" },
-  { title: "Hardhat", icon: "hardhat" },
-  { title: "Pytorch", icon: "pytorch" },
-  { title: "FastAPI", icon: "fastapi" },
-  { title: "HuggingFace", icon: "huggingface" },
-  { title: "Docker", icon: "docker" },
-]
+  SKILLS["react"],
+  SKILLS["typescript"],
+  SKILLS["solidity"],
+  SKILLS["python"],
+  SKILLS["tailwind"],
+  SKILLS["postgresql"],
+  SKILLS["graphql"],
+  SKILLS["chromadb"],
+  SKILLS["vite"],
+  SKILLS["nextjs"],
+  SKILLS["hardhat"],
+  SKILLS["pytorch"],
+  SKILLS["fastapi"],
+  SKILLS["huggingface"],
+  SKILLS["docker"],
+];
 
 const devbridgeSkills: Skill[] = [
-  { title: "Java", icon: "java" },
-  { title: "Kotlin", icon: "kotlin" },
-  { title: "Spring", icon: "spring" },
-  { title: "React", icon: "react" },
-  { title: "TypeScript", icon: "typescript" },
-  { title: "Jenkins", icon: "jenkins" },
-  { title: "MondoDB", icon: "mongodb" },
-  { title: "Vite", icon: "vite" },
-  { title: "Docker", icon: "docker" },
-]
+  SKILLS["java"],
+  SKILLS["kotlin"],
+  SKILLS["spring"],
+  SKILLS["react"],
+  SKILLS["typescript"],
+  SKILLS["jenkins"],
+  SKILLS["mongodb"],
+  SKILLS["vite"],
+  SKILLS["docker"],
+];
 
 const cognizantSkills: Skill[] = [
-  { title: "Java", icon: "java" },
-  { title: "Spring", icon: "spring" },
-  { title: "React", icon: "react" },
-  { title: "TypeScript", icon: "typescript" },
-  { title: "GitHub Actions", icon: "github-actions" },
-  { title: "PostgreSQL", icon: "postgresql" },
-  { title: "Kubernetes", icon: "kubernetes" },
-  { title: "Docker", icon: "docker" },
-]
+  SKILLS["java"],
+  SKILLS["spring"],
+  SKILLS["react"],
+  SKILLS["typescript"],
+  SKILLS["github-actions"],
+  SKILLS["postgresql"],
+  SKILLS["kubernetes"],
+  SKILLS["docker"],
+];
 
 const languageSkills: Skill[] = [
-  { title: "Python", icon: "python" },
-  { title: "Java", icon: "java" },
-  { title: "C++", icon: "cpp" },
-  { title: "Rust", icon: "rust" },
-  { title: "TypeScript", icon: "typescript" },
-  { title: "Haskell", icon: "haskell" },
-  { title: "OCaml", icon: "ocaml" },
-  { title: "SQL", icon: "postgresql" },
-]
+  SKILLS["python"],
+  SKILLS["java"],
+  SKILLS["cpp"],
+  SKILLS["rust"],
+  SKILLS["typescript"],
+  SKILLS["haskell"],
+  SKILLS["ocaml"],
+  SKILLS["sql"],
+];
+
 const webSkills: Skill[] = [
-  { title: "Django", icon: "django" },
-  { title: "FastAPI", icon: "fastapi" },
-  { title: "Spring", icon: "spring" },
-  { title: "React", icon: "react" },
-  { title: "Next.js", icon: "nextjs", color: "black" },
-  { title: "Astro", icon: "astro" },
-]
+  SKILLS["django"],
+  SKILLS["fastapi"],
+  SKILLS["spring"],
+  SKILLS["react"],
+  SKILLS["nextjs"],
+  SKILLS["astro"],
+];
+
 const machineLearningSkills: Skill[] = [
-  { title: "Pytorch", icon: "pytorch" },
-  { title: "Numpy", icon: "numpy" },
-  { title: "Pandas", icon: "pandas" },
-  { title: "Sklearn", icon: "sklearn" },
-]
+  SKILLS["pytorch"],
+  SKILLS["numpy"],
+  SKILLS["pandas"],
+  SKILLS["sklearn"],
+];
+
 const toolSkills: Skill[] = [
-  { title: "Git", icon: "git" },
-  { title: "Docker", icon: "docker" },
-  { title: "Vite", icon: "vite" },
-]
+  SKILLS["git"],
+  SKILLS["docker"],
+  SKILLS["vite"],
+];
+
 const operatingSystemSkills: Skill[] = [
-  { title: "NixOS", icon: "nixos" },
-  { title: "Arch", icon: "arch" },
-]
+  SKILLS["nixos"],
+  SKILLS["arch"],
+];
+
 
 const MAX_POSTS = 5
 const allPosts = await getAllPosts()

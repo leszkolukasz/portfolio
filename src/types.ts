@@ -29,4 +29,12 @@ export type Skill = {
   color?: string
 }
 
+export type Project = {
+  title: string,
+  description: string,
+  href: string,
+  skills: Skill[],
+  image: ImageMetadata,
+}
+
 export type AdmonitionType = "tip" | "note" | "important" | "caution" | "warning"

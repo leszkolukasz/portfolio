@@ -10,6 +10,7 @@ import PostPreview from "@/components/blog/PostPreview.astro"
 import PageLayout from "@/layouts/BaseLayout.astro"
 import { getAllPosts, getUniqueTags, groupPostsByYear, sortMDByDate } from "@/utils"
 import { Icon } from "astro-icon/components"
+import type { SiteMeta } from "@/types"
 
 export const getStaticPaths = (async ({ paginate }) => {
   const allPosts = await getAllPosts()
@@ -25,9 +26,9 @@ interface Props {
 
 const { page, uniqueTags } = Astro.props
 
-const meta = {
-  description: "Posts",
+const meta: SiteMeta = {
   title: "Blog",
+  description: "My blog posts",
 }
 
 const paginationProps = {
@@ -67,7 +68,7 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a)
       </svg>
     </Button>
 
-    <div class="flex items-center gap-x-2">
+    <div class="mt-5 flex items-center gap-x-2">
       <h1 class="mb-6 mt-5 text-2xl font-bold">Blog</h1>
       <a href="/rss.xml" target="_blank">
         <Icon name="rss" class="h-5 w-5 text-foreground/75" />
