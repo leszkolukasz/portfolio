@@ -82,6 +82,12 @@ export default defineConfig({
       },
     },
   },
+  image: {
+    remotePatterns: [
+      { protocol: "https", hostname: "github.com", pathname: "leszkolukasz/**" },
+      { protocol: "https", hostname: "lorempokemon.fakerapi.it", pathname: "pokemon/**" },
+    ]
+  },
   prefetch: true,
   output: "static",
   vite: {
