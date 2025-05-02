@@ -1,48 +1,46 @@
-<!-- Loads the following script that will render the Utterances comments based on the current theme
- <script
-        src="https://utteranc.es/client.js"
-        repo="leszkolukasz/portfolio-comments"
-        issue-term="pathname"
-        theme="preferred-color-scheme"
-        crossorigin="anonymous"
-        async>
-</script>
--->
-
 <div id="comments-section">
-  <div id="utterances-placeholder">
+  <div id="comments-placeholder">
     <script is:inline>
         function getCurrentTheme() {
-        return localStorage.getItem("theme") || "light";
+          return localStorage.getItem("theme") || "dark";
         }
 
-        function setUtterancesTheme(theme) {
-        const utterancesScript = document.querySelector("#utterances-placeholder .utterances");
+        function setCommentsTheme(theme) {
+          const giscusScript = document.querySelector("#comments-placeholder .giscus");
 
-        if (utterancesScript) {
-            utterancesScript.remove();
-        }
+          if (giscusScript) {
+            giscusScript.remove();
+          }
 
-        // Create a new script with the updated theme
-        const newScript = document.createElement("script");
-        newScript.src = "https://utteranc.es/client.js";
-        newScript.crossOrigin = "anonymous";
-        newScript.async = true;
-        newScript.setAttribute("repo", "leszkolukasz/portfolio-comments");
-        newScript.setAttribute("issue-term", "pathname");
-        newScript.setAttribute("theme", theme === "dark" ? "github-dark" : "github-light");
+          // Create a new script with the updated theme
+          const newScript = document.createElement("script");
+          newScript.src = "https://giscus.app/client.js";
+          newScript.crossOrigin = "anonymous";
+          newScript.async = true;
+          newScript.setAttribute("data-repo", "leszkolukasz/portfolio-comments");
+          newScript.setAttribute("data-repo-id", "R_kgDONvMT-A");
+          newScript.setAttribute("data-category", "Announcements");
+          newScript.setAttribute("data-category-id", "DIC_kwDONvMT-M4Cptt9");
+          newScript.setAttribute("data-mapping", "pathname");
+          newScript.setAttribute("data-strict", "0");
+          newScript.setAttribute("data-reactions-enabled", "1");
+          newScript.setAttribute("data-emit-metadata", "0");
+          newScript.setAttribute("data-input-position", "top");
+          newScript.setAttribute("data-theme", theme);
+          newScript.setAttribute("data-lang", "en");
+          newScript.setAttribute("data-loading", "lazy");
 
-        document.getElementById("utterances-placeholder").appendChild(newScript);
+          document.getElementById("comments-placeholder").appendChild(newScript);
         }
 
         document.addEventListener("theme-change", (event) => {
-        const newTheme = event.detail.theme;
-        setUtterancesTheme(newTheme);
+          const newTheme = event.detail.theme;
+          setCommentsTheme(newTheme);
         });
 
         document.addEventListener("DOMContentLoaded", () => {
-        const currentTheme = getCurrentTheme();
-        setUtterancesTheme(currentTheme);
+          const currentTheme = getCurrentTheme();
+          setCommentsTheme(currentTheme);
         });
     </script>
   </div>

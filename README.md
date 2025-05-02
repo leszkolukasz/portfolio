@@ -1,5 +1,9 @@
 # Astro Resume
 
+## Credits
+
+Based on [astro-theme-resume](https://github.com/srleom/astro-theme-resume) by [srleom](https://github.com/srleom).
+
 ## Features
 
 - Astro v4

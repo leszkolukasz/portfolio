@@ -78,16 +78,19 @@ const webSkills: Skill[] = [
 
 const machineLearningSkills: Skill[] = [
   SKILLS["pytorch"],
+  SKILLS["llamacpp"],
+  SKILLS["clearml"],
   SKILLS["numpy"],
   SKILLS["pandas"],
+  SKILLS["polars"],
   SKILLS["sklearn"],
 ];
 
-const toolSkills: Skill[] = [
-  SKILLS["git"],
-  SKILLS["docker"],
-  SKILLS["vite"],
-];
+// const toolSkills: Skill[] = [
+//   SKILLS["git"],
+//   SKILLS["docker"],
+//   SKILLS["vite"],
+// ];
 
 const operatingSystemSkills: Skill[] = [
   SKILLS["nixos"],
@@ -151,7 +154,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       <p class="text-muted-foreground">My areas of interest are:</p>
       <ul class="ml-4 list-disc text-muted-foreground">
         <li>Programming languages (compilers, language design)</li>
-        <li>Machine learning (still looking for my niche)</li>
+        <li>Machine learning (LLMs)</li>
       </ul>
     </Section>
     {
@@ -172,7 +175,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       <Card
         heading="Junior Software Engineer"
         subheading="RadCode"
-        date="Jul 2024 - present"
+        date="Jul 2024 - Oct 2024"
         subheadingHref="https://www.linkedin.com/company/11756811"
       >
         <SkillList skills={radcodeSkills} small />
@@ -240,7 +243,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       <SkillLayout title="Languages" skills={languageSkills} />
       <SkillLayout title="Web" skills={webSkills} />
       <SkillLayout title="ML" skills={machineLearningSkills} />
-      <SkillLayout title="Tools" skills={toolSkills} />
+      <!-- <SkillLayout title="Tools" skills={toolSkills} /> -->
       <SkillLayout title="OS" skills={operatingSystemSkills} />
     </Section>
   </div>
