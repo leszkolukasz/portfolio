@@ -34,7 +34,7 @@ export const menuLinks: Array<{ title: string; path: string }> = [
   },
   {
     title: "CV",
-    path: "/cv.txt",
+    path: "https://raw.githubusercontent.com/leszkolukasz/cv/master/cv.pdf",
   },
 ]
 
