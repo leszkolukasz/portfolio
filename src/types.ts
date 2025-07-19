@@ -25,15 +25,15 @@ export type SiteMeta = {
 
 export type Skill = {
   title: string
-  icon?: string
+  icon: string
   color?: string
 }
 
 export type Project = {
-  title: string,
-  description: string,
-  href: string,
-  skills: Skill[],
+  title: string
+  description: string
+  href: string
+  skills: Skill[]
   image?: ImageMetadata | string
 }
 

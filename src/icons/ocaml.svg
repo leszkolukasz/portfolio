@@ -1,4 +1,4 @@
-<svg viewBox="0 0 128 128">
+<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" width="128" height="128">
     <defs>
         <linearGradient id="ocaml-original-a" gradientUnits="userSpaceOnUse" x1="82.925" y1="97.718"
             x2="82.925" y2="97.9" gradientTransform="translate(0 8.224) scale(.77317)">
