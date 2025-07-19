@@ -34,7 +34,7 @@ export type Project = {
   description: string,
   href: string,
   skills: Skill[],
-  image: ImageMetadata | string
+  image?: ImageMetadata | string
 }
 
 export type AdmonitionType = "tip" | "note" | "important" | "caution" | "warning"

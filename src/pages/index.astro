@@ -13,7 +13,7 @@ import { getAllPosts, sortMDByDate } from "@/utils"
 import { Icon } from "astro-icon/components"
 import type { Skill } from "@/types"
 import SkillList from "@/components/SkillList.astro"
-import { SKILLS } from "src/constants"
+import { LANGUAGE_SKILLS, MACHINE_LEARNING_SKILLS, SKILLS, WEB_SKILLS, OPERATING_SYSTEM_SKILLS } from "src/constants"
 
 const radcodeSkills: Skill[] = [
   SKILLS["react"],
@@ -55,48 +55,6 @@ const cognizantSkills: Skill[] = [
   SKILLS["kubernetes"],
   SKILLS["docker"],
 ];
-
-const languageSkills: Skill[] = [
-  SKILLS["python"],
-  SKILLS["java"],
-  SKILLS["cpp"],
-  SKILLS["rust"],
-  SKILLS["typescript"],
-  SKILLS["haskell"],
-  SKILLS["ocaml"],
-  SKILLS["sql"],
-];
-
-const webSkills: Skill[] = [
-  SKILLS["django"],
-  SKILLS["fastapi"],
-  SKILLS["spring"],
-  SKILLS["react"],
-  SKILLS["nextjs"],
-  SKILLS["astro"],
-];
-
-const machineLearningSkills: Skill[] = [
-  SKILLS["pytorch"],
-  SKILLS["llamacpp"],
-  SKILLS["clearml"],
-  SKILLS["numpy"],
-  SKILLS["pandas"],
-  SKILLS["polars"],
-  SKILLS["sklearn"],
-];
-
-// const toolSkills: Skill[] = [
-//   SKILLS["git"],
-//   SKILLS["docker"],
-//   SKILLS["vite"],
-// ];
-
-const operatingSystemSkills: Skill[] = [
-  SKILLS["nixos"],
-  SKILLS["arch"],
-];
-
 
 const MAX_POSTS = 5
 const allPosts = await getAllPosts()
@@ -240,11 +198,10 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
     </Section>
 
     <Section title="Skills">
-      <SkillLayout title="Languages" skills={languageSkills} />
-      <SkillLayout title="Web" skills={webSkills} />
-      <SkillLayout title="ML" skills={machineLearningSkills} />
-      <!-- <SkillLayout title="Tools" skills={toolSkills} /> -->
-      <SkillLayout title="OS" skills={operatingSystemSkills} />
+      <SkillLayout title="Languages" skills={LANGUAGE_SKILLS} />
+      <SkillLayout title="Web" skills={WEB_SKILLS} />
+      <SkillLayout title="ML" skills={MACHINE_LEARNING_SKILLS} />
+      <SkillLayout title="OS" skills={OPERATING_SYSTEM_SKILLS} />
     </Section>
   </div>
 </PageLayout>

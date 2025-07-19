@@ -41,3 +41,38 @@ export const SKILLS = {
     "nixos": { title: "NixOS", icon: "nixos" },
     "arch": { title: "Arch", icon: "arch" },
   } as const satisfies Dictionary<Skill>;
+
+export const LANGUAGE_SKILLS: Skill[] = [
+  SKILLS["python"],
+  SKILLS["java"],
+  SKILLS["cpp"],
+  SKILLS["rust"],
+  SKILLS["typescript"],
+  SKILLS["haskell"],
+  SKILLS["ocaml"],
+  SKILLS["sql"],
+];
+
+export const WEB_SKILLS: Skill[] = [
+  SKILLS["django"],
+  SKILLS["fastapi"],
+  SKILLS["spring"],
+  SKILLS["react"],
+  SKILLS["nextjs"],
+  SKILLS["astro"],
+];
+
+export const MACHINE_LEARNING_SKILLS: Skill[] = [
+  SKILLS["pytorch"],
+  SKILLS["llamacpp"],
+  SKILLS["clearml"],
+  SKILLS["numpy"],
+  SKILLS["pandas"],
+  SKILLS["polars"],
+  SKILLS["sklearn"],
+];
+
+export const OPERATING_SYSTEM_SKILLS: Skill[] = [
+  SKILLS["nixos"],
+  SKILLS["arch"],
+];

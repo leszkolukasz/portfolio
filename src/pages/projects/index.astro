@@ -12,16 +12,38 @@ const meta: SiteMeta = {
 
 const projects: Project[] = [
   {
+    title: "Training 1.58bit LLMs via Distillation - paper",
+    description:
+      "Mini-paper on training 1.58bit LLMs via distillation. It explores the effectiveness of distillation using different quantization methods, such as those introduces in papers: OneBit, BitNet and FBI and compares them with 1bit quantization.",
+    href: "https://github.com/leszkolukasz/training-1.58bit-llms-via-distillation",
+    skills: [SKILLS["python"]],
+  },
+  {
+    title: "Type Safe Tensors - Haskell library",
+    description:
+      "Pure Haskell tensor library inspired by PyTorch. It provides type-safe N-dimensional tensors, broadcasting, neural network building blocks, and more, all with type-level shape tracking.",
+    href: "https://github.com/leszkolukasz/type-safe-tensors",
+
+    skills: [SKILLS["haskell"]],
+  },
+  {
+    title: "TACACS - protocol implementation with correctness proofs",
+    description:
+      "Implementation of the TACACS protocol in Coq and Ocaml. According to the RFC1492.",
+    href: "https://github.com/leszkolukasz/tacacs-coq",
+    skills: [SKILLS["haskell"], SKILLS["rust"]],
+  },
+  {
     title: "Kava - programming language",
-    description: "Kava is a programming language inspired by Kotlin with elements borrowed from Java and JavaScript. It is statically typed, interpreted, and supports functions as first-class citizens.",
-    image: "https://github.com/leszkolukasz/kava-programming-language/raw/master/readme/mascot-sm.webp",
+    description:
+      "Programming language inspired by Kotlin with elements borrowed from Java and JavaScript. It is statically typed, interpreted, and supports functions as first-class citizens.",
     href: "https://github.com/leszkolukasz/kava-programming-language",
     skills: [SKILLS["haskell"]],
   },
   {
     title: "Latte - programming language",
-    description: "Latte is an imperative language, almost a subset of Java. It is statically typed, compiled, and supports object-oriented programming.",
-    image: "https://lorempokemon.fakerapi.it/pokemon/400",
+    description:
+      "Imperative language, almost a subset of Java. It is statically typed, compiled, and supports object-oriented programming.",
     href: "https://github.com/leszkolukasz/latte-compiler",
     skills: [SKILLS["haskell"], SKILLS["rust"]],
   },
@@ -47,9 +69,10 @@ const projects: Project[] = [
     </Button>
 
     <div class="mt-10 flex w-full flex-col gap-y-10">
-        <h1 class="mb-1 text-2xl font-bold">Projects</h1>
-        <div class="flex flex-col gap-y-6 gap-x-6 sm:flex-row">
-          {projects.map((project) => (
+      <h1 class="mb-1 text-2xl font-bold">Projects</h1>
+      <div class="flex flex-col flex-wrap justify-start gap-x-6 gap-y-6 sm:flex-row">
+        {
+          projects.map((project) => (
             <ProjectCard
               href={project.href}
               heading={project.title}
@@ -57,10 +80,11 @@ const projects: Project[] = [
               image={project.image}
               altText={project.title}
               skills={project.skills}
-              class="w-full sm:w-1/2"
+              class="w-full sm:w-[calc(50%-0.75rem)]"
             />
-          ))}
-        </div>
+          ))
+        }
       </div>
+    </div>
   </div>
 </PageLayout>
