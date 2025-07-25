@@ -31,6 +31,7 @@ export const SKILLS = {
   sql: { title: "SQL", icon: "postgresql" },
   django: { title: "Django", icon: "django" },
   astro: { title: "Astro", icon: "astro" },
+  qt: { title: "Qt", icon: "qt" },
   llamacpp: { title: "llama.cpp", icon: "llamacpp" },
   clearml: { title: "ClearML", icon: "clearml" },
   numpy: { title: "Numpy", icon: "numpy" },
