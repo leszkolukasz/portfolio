@@ -15,7 +15,10 @@ const { skills, small } = Astro.props
   {
     skills.map((skill: Skill) => (
       <Button component="button" title={skill.title} style="pill" small={small}>
-        <Icon name={skill.icon} class="h-4 w-4" slot="icon-before" color={skill.color} />
+        {skill.emoji != null && <span slot="icon-before">{skill.emoji}</span>}
+        {skill.icon != null && (
+          <Icon name={skill.icon} class="h-4 w-4" slot="icon-before" color={skill.color} />
+        )}
       </Button>
     ))
   }

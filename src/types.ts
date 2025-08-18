@@ -25,7 +25,8 @@ export type SiteMeta = {
 
 export type Skill = {
   title: string
-  icon: string
+  icon?: string
+  emoji?: string
   color?: string
 }
 

@@ -33,6 +33,8 @@ export const SKILLS = {
   astro: { title: "Astro", icon: "astro" },
   qt: { title: "Qt", icon: "qt" },
   llamacpp: { title: "llama.cpp", icon: "llamacpp" },
+  litellm: { title: "LiteLLM", emoji: "🚅" },
+  openai: { title: "OpenAI", icon: "openai" },
   clearml: { title: "ClearML", icon: "clearml" },
   numpy: { title: "Numpy", icon: "numpy" },
   pandas: { title: "Pandas", icon: "pandas" },
@@ -66,7 +68,7 @@ export const WEB_SKILLS: Skill[] = [
 export const MACHINE_LEARNING_SKILLS: Skill[] = [
   SKILLS["pytorch"],
   SKILLS["llamacpp"],
-  SKILLS["clearml"],
+  SKILLS["litellm"],
   SKILLS["numpy"],
   SKILLS["pandas"],
   SKILLS["polars"],
