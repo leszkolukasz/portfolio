@@ -20,7 +20,7 @@ import rehypeUnwrapImages from "rehype-unwrap-images"
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://lukaszleszko.dev",
+  site: "https://lukasz.leszko.dev",
   integrations: [
     expressiveCode(expressiveCodeOptions),
     tailwind({
@@ -86,7 +86,7 @@ export default defineConfig({
     remotePatterns: [
       { protocol: "https", hostname: "github.com", pathname: "leszkolukasz/**" },
       { protocol: "https", hostname: "lorempokemon.fakerapi.it", pathname: "pokemon/**" },
-    ]
+    ],
   },
   prefetch: true,
   output: "static",
