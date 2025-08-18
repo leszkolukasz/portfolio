@@ -33,7 +33,7 @@ export const SKILLS = {
   astro: { title: "Astro", icon: "astro" },
   qt: { title: "Qt", icon: "qt" },
   llamacpp: { title: "llama.cpp", icon: "llamacpp" },
-  litellm: { title: "LiteLLM", emoji: "🚅" },
+  litellm: { title: "LiteLLM", icon: "litellm" },
   openai: { title: "OpenAI", icon: "openai" },
   clearml: { title: "ClearML", icon: "clearml" },
   numpy: { title: "Numpy", icon: "numpy" },
