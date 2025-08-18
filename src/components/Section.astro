@@ -1,6 +1,11 @@
 ---
 import { cn } from "@/utils"
 
+interface Props {
+  title: string
+  class?: string
+}
+
 const { class: className, title } = Astro.props
 ---
 

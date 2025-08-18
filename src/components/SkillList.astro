@@ -14,7 +14,7 @@ const { skills, small } = Astro.props
 <div class="flex w-full flex-row flex-wrap gap-x-4 gap-y-2">
   {
     skills.map((skill: Skill) => (
-      <Button as="button" title={skill.title} style="pill" small={small}>
+      <Button component="button" title={skill.title} style="pill" small={small}>
         <Icon name={skill.icon} class="h-4 w-4" slot="icon-before" color={skill.color} />
       </Button>
     ))

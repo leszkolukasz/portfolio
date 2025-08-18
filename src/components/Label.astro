@@ -1,7 +1,14 @@
 ---
 import { cn } from "@/utils"
 
-const { class: className, as: Tag = "div", title, href, ...props } = Astro.props
+interface Props {
+  class?: string
+  component?: any
+  title: string
+  href?: string
+}
+
+const { class: className, component: Tag = "div", title, href, ...props } = Astro.props
 ---
 
 <Tag

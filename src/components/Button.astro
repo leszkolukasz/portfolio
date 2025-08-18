@@ -2,7 +2,7 @@
 import { cn } from "@/utils"
 
 export interface Props {
-  as?: string
+  component?: any
   class?: string
   title: string
   href?: string
@@ -10,7 +10,7 @@ export interface Props {
   small?: boolean
 }
 
-const { as: Tag = "a", class: className, title, href, style = "button", small } = Astro.props
+const { component: Tag = "a", class: className, title, href, style = "button", small } = Astro.props
 ---
 
 <Tag
