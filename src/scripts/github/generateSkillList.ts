@@ -5,15 +5,14 @@ import {
   WEB_SKILLS,
   MACHINE_LEARNING_SKILLS,
   OPERATING_SYSTEM_SKILLS,
-} from "../constants"
-
-const REPO_URL = "https://raw.githubusercontent.com/leszkolukasz/portfolio/main/src/icons/"
+} from "../../constants"
+import { REPO_ICONS_URL } from "./constants"
 
 function generateSkillRow(skills: Skill[]): string {
   const titles = skills.map((s) => s.title)
   const icons = skills.map(
     (s) =>
-      `<img src="${REPO_URL + s.icon}.svg" title="${s.title}" alt="${s.title}" width="55" height="55"/>`,
+      `<img src="${REPO_ICONS_URL + s.icon}.svg" title="${s.title}" alt="${s.title}" width="55" height="55"/>`,
   )
   return `| ${titles.join(" | ")} |\n|${"---------|".repeat(skills.length)}\n| ${icons.join(" | ")} |`
 }
