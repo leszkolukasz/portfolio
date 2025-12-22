@@ -1,6 +1,6 @@
 // generateTierList.ts
 import type { Skill } from "@/types"
-import { PROGRAMMING_LANGUAGE_TIER_LIST, SKILLS } from "../../constants"
+import { PROGRAMMING_LANGUAGE_TIER_LIST } from "../../constants"
 import { REPO_ICONS_URL } from "./constants"
 
 const TIER_COLORS: Record<string, string> = {
