@@ -8,12 +8,63 @@ import type { SiteMeta } from "@/types";
 
 type Props = SiteMeta;
 
-const { articleDate, description, ogImage, title } = Astro.props;
+const { articleDate, description, ogImage, noindex, title } = Astro.props;
 
 const titleSeparator = "•";
-const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`;
+const siteTitle = title.includes(siteConfig.title)
+  ? title
+  : `${title} ${titleSeparator} ${siteConfig.title}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImageURL = new URL(ogImage ? ogImage : "/social-card.webp", Astro.url).href;
+const siteURL = Astro.site?.origin ?? "https://lukasz.leszko.dev";
+
+const jsonLd = (schema: object) => JSON.stringify(schema).replace(/</g, "\\u003c");
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteConfig.author,
+  url: siteURL,
+  jobTitle: "Machine Learning Engineer",
+  sameAs: ["https://github.com/leszkolukasz", "https://www.linkedin.com/in/leszkolukasz"],
+};
+
+const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.title,
+  url: siteURL,
+  inLanguage: siteConfig.lang,
+  author: {
+    "@type": "Person",
+    name: siteConfig.author,
+    url: siteURL,
+  },
+};
+
+const blogPostingSchema = articleDate
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: title,
+      description,
+      datePublished: articleDate,
+      dateModified: articleDate,
+      author: {
+        "@type": "Person",
+        name: siteConfig.author,
+        url: siteURL,
+      },
+      publisher: {
+        "@type": "Person",
+        name: siteConfig.author,
+        url: siteURL,
+      },
+      image: socialImageURL,
+      url: canonicalURL.href,
+      mainEntityOfPage: canonicalURL.href,
+    }
+  : null;
 ---
 
 <meta charset="utf-8">
@@ -33,6 +84,8 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.webp", Astro.ur
 
 {/* Canonical URL */}
 <link rel="canonical" href={canonicalURL}>
+<link rel="author" href="/humans.txt">
+{noindex && <meta name="robots" content="noindex">}
 
 {/* Primary Meta Tags */}
 <meta content={siteTitle} name="title">
@@ -40,7 +93,8 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.webp", Astro.ur
 <meta content={siteConfig.author} name="author">
 
 {/* Theme Colour */}
-<meta content="" name="theme-color">
+<meta name="theme-color" content="#fbfdfe" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f0f12" media="(prefers-color-scheme: dark)">
 
 {/* Open Graph / Facebook */}
 <meta content={articleDate ? "article" : "website"} property="og:type">
@@ -52,6 +106,7 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.webp", Astro.ur
 <meta content={socialImageURL} property="og:image">
 <meta content="1200" property="og:image:width">
 <meta content="630" property="og:image:height">
+<meta content={description} property="og:image:alt">
 {articleDate && (
   <>
     <meta content={siteConfig.author} property="article:author" />
@@ -65,6 +120,7 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.webp", Astro.ur
 <meta content={title} property="twitter:title">
 <meta content={description} property="twitter:description">
 <meta content={socialImageURL} property="twitter:image">
+<meta content={description} property="twitter:image:alt">
 
 {/* Sitemap */}
 <link href="/sitemap-index.xml" rel="sitemap">
@@ -73,6 +129,13 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.webp", Astro.ur
 <link href="/rss.xml" rel="alternate" title={siteConfig.title} type="application/rss+xml">
 
 <meta content={Astro.generator} name="generator">
+
+{/* Structured data */}
+<script type="application/ld+json" is:inline set:html={jsonLd(personSchema)} />
+<script type="application/ld+json" is:inline set:html={jsonLd(webSiteSchema)} />
+{blogPostingSchema && (
+  <script type="application/ld+json" is:inline set:html={jsonLd(blogPostingSchema)} />
+)}
 
 {/* Cloudflare Web Analytics */}
 <script

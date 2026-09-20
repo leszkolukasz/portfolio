@@ -21,6 +21,7 @@ export type SiteMeta = {
   description?: string;
   ogImage?: string | undefined;
   articleDate?: string | undefined;
+  noindex?: boolean | undefined;
 };
 
 export type Skill = {
