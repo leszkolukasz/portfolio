@@ -2,14 +2,14 @@
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "allowJs": true,
-    "baseUrl": ".",
     "paths": {
-      "@/assets/*": ["src/assets/*"],
-      "@/components/*": ["src/components/*"],
-      "@/layouts/*": ["src/layouts/*"],
-      "@/utils": ["src/utils/index.ts"],
-      "@/types": ["src/types.ts"],
-      "@/site-config": ["src/site.config.ts"]
+      "@/assets/*": ["./src/assets/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/constants": ["./src/constants.ts"],
+      "@/layouts/*": ["./src/layouts/*"],
+      "@/utils": ["./src/utils/index.ts"],
+      "@/types": ["./src/types.ts"],
+      "@/site-config": ["./src/site.config.ts"]
     }
   },
   "include": [".astro/types.d.ts", "**/*"],

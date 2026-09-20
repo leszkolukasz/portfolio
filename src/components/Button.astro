@@ -1,8 +1,9 @@
 ---
+import type { HTMLTag } from "astro/types";
 import { cn } from "@/utils";
 
 export interface Props {
-  component?: any;
+  component?: HTMLTag;
   class?: string;
   title: string;
   href?: string;

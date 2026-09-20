@@ -37,7 +37,7 @@ const markup = (title: string, pubDate: string) =>
       <div tw="flex items-center">
         <img
           tw="w-12 h-12 rounded-full"
-          src="${"data:image/png;base64," + toBase64("src/assets/profile.png")}"
+          src="${`data:image/png;base64,${toBase64("src/assets/profile.png")}`}"
           alt="Logo"
         />
       </div>

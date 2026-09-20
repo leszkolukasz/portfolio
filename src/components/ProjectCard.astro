@@ -1,11 +1,12 @@
 ---
 import { Image } from "astro:assets";
+import type { HTMLTag } from "astro/types";
 import type { Skill } from "@/types";
 import { cn } from "@/utils";
 import SkillList from "./SkillList.astro";
 
 export type Props = {
-  component?: any;
+  component?: HTMLTag;
   class?: string;
   href?: string;
   heading: string;

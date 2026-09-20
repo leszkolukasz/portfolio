@@ -52,42 +52,42 @@ export const SKILLS = {
 } as const satisfies Dictionary<Skill>;
 
 export const LANGUAGE_SKILLS: Skill[] = [
-  SKILLS["python"],
-  SKILLS["java"],
-  SKILLS["cpp"],
-  SKILLS["go"],
-  SKILLS["rust"],
-  SKILLS["typescript"],
-  SKILLS["haskell"],
-  SKILLS["ocaml"],
-  SKILLS["sql"],
+  SKILLS.python,
+  SKILLS.java,
+  SKILLS.cpp,
+  SKILLS.go,
+  SKILLS.rust,
+  SKILLS.typescript,
+  SKILLS.haskell,
+  SKILLS.ocaml,
+  SKILLS.sql,
 ];
 
 export const WEB_SKILLS: Skill[] = [
-  SKILLS["django"],
-  SKILLS["fastapi"],
-  SKILLS["spring"],
-  SKILLS["react"],
-  SKILLS["nextjs"],
-  SKILLS["astro"],
+  SKILLS.django,
+  SKILLS.fastapi,
+  SKILLS.spring,
+  SKILLS.react,
+  SKILLS.nextjs,
+  SKILLS.astro,
 ];
 
 export const MACHINE_LEARNING_SKILLS: Skill[] = [
-  SKILLS["pytorch"],
-  SKILLS["llamacpp"],
-  SKILLS["litellm"],
-  SKILLS["numpy"],
-  SKILLS["pandas"],
-  SKILLS["polars"],
-  SKILLS["sklearn"],
+  SKILLS.pytorch,
+  SKILLS.llamacpp,
+  SKILLS.litellm,
+  SKILLS.numpy,
+  SKILLS.pandas,
+  SKILLS.polars,
+  SKILLS.sklearn,
 ];
 
-export const OPERATING_SYSTEM_SKILLS: Skill[] = [SKILLS["nixos"], SKILLS["arch"]];
+export const OPERATING_SYSTEM_SKILLS: Skill[] = [SKILLS.nixos, SKILLS.arch];
 
 export const PROGRAMMING_LANGUAGE_TIER_LIST: Dictionary<Skill[]> = {
-  S: [SKILLS["haskell"], SKILLS["rust"]],
-  A: [SKILLS["kotlin"], SKILLS["gleam"]],
-  B: [SKILLS["python"], SKILLS["typescript"], SKILLS["ocaml"]],
-  C: [SKILLS["c"], SKILLS["cpp"], SKILLS["go"], SKILLS["lua"], SKILLS["rocq"]],
-  D: [SKILLS["java"], SKILLS["javascript"]],
+  S: [SKILLS.haskell, SKILLS.rust],
+  A: [SKILLS.kotlin, SKILLS.gleam],
+  B: [SKILLS.python, SKILLS.typescript, SKILLS.ocaml],
+  C: [SKILLS.c, SKILLS.cpp, SKILLS.go, SKILLS.lua, SKILLS.rocq],
+  D: [SKILLS.java, SKILLS.javascript],
 };

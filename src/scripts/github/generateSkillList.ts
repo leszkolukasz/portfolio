@@ -18,10 +18,10 @@ function generateSkillRow(skills: Skill[]): string {
 }
 
 const markdown = [
-  "### Languages\n\n" + generateSkillRow(LANGUAGE_SKILLS),
-  "### Web\n\n" + generateSkillRow(WEB_SKILLS),
-  "### Machine Learning\n\n" + generateSkillRow(MACHINE_LEARNING_SKILLS),
-  "### OS\n\n" + generateSkillRow(OPERATING_SYSTEM_SKILLS),
+  `### Languages\n\n${generateSkillRow(LANGUAGE_SKILLS)}`,
+  `### Web\n\n${generateSkillRow(WEB_SKILLS)}`,
+  `### Machine Learning\n\n${generateSkillRow(MACHINE_LEARNING_SKILLS)}`,
+  `### OS\n\n${generateSkillRow(OPERATING_SYSTEM_SKILLS)}`,
 ].join("\n\n");
 
 console.log(markdown);

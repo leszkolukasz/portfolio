@@ -1,15 +1,15 @@
 ---
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
+import PostPreview from "@/components/blog/PostPreview.astro";
+import SkillList from "@/components/SkillList.astro";
 import {
   LANGUAGE_SKILLS,
   MACHINE_LEARNING_SKILLS,
   OPERATING_SYSTEM_SKILLS,
   SKILLS,
   WEB_SKILLS,
-} from "src/constants";
-import PostPreview from "@/components/blog/PostPreview.astro";
-import SkillList from "@/components/SkillList.astro";
+} from "@/constants";
 import type { Skill } from "@/types";
 import { getAllPosts, sortMDByDate } from "@/utils";
 import profile from "../assets/profile.png";
@@ -20,44 +20,44 @@ import SkillLayout from "../components/SkillLayout.astro";
 import PageLayout from "../layouts/BaseLayout.astro";
 
 const radcodeSkills: Skill[] = [
-  SKILLS["react"],
-  SKILLS["typescript"],
-  SKILLS["solidity"],
-  SKILLS["python"],
-  SKILLS["tailwind"],
-  SKILLS["postgresql"],
-  SKILLS["graphql"],
-  SKILLS["chromadb"],
-  SKILLS["vite"],
-  SKILLS["nextjs"],
-  SKILLS["hardhat"],
-  SKILLS["pytorch"],
-  SKILLS["fastapi"],
-  SKILLS["huggingface"],
-  SKILLS["docker"],
+  SKILLS.react,
+  SKILLS.typescript,
+  SKILLS.solidity,
+  SKILLS.python,
+  SKILLS.tailwind,
+  SKILLS.postgresql,
+  SKILLS.graphql,
+  SKILLS.chromadb,
+  SKILLS.vite,
+  SKILLS.nextjs,
+  SKILLS.hardhat,
+  SKILLS.pytorch,
+  SKILLS.fastapi,
+  SKILLS.huggingface,
+  SKILLS.docker,
 ];
 
 const devbridgeSkills: Skill[] = [
-  SKILLS["java"],
-  SKILLS["kotlin"],
-  SKILLS["spring"],
-  SKILLS["react"],
-  SKILLS["typescript"],
-  SKILLS["jenkins"],
-  SKILLS["mongodb"],
-  SKILLS["vite"],
-  SKILLS["docker"],
+  SKILLS.java,
+  SKILLS.kotlin,
+  SKILLS.spring,
+  SKILLS.react,
+  SKILLS.typescript,
+  SKILLS.jenkins,
+  SKILLS.mongodb,
+  SKILLS.vite,
+  SKILLS.docker,
 ];
 
 const cognizantSkills: Skill[] = [
-  SKILLS["java"],
-  SKILLS["spring"],
-  SKILLS["react"],
-  SKILLS["typescript"],
+  SKILLS.java,
+  SKILLS.spring,
+  SKILLS.react,
+  SKILLS.typescript,
   SKILLS["github-actions"],
-  SKILLS["postgresql"],
-  SKILLS["kubernetes"],
-  SKILLS["docker"],
+  SKILLS.postgresql,
+  SKILLS.kubernetes,
+  SKILLS.docker,
 ];
 
 const MAX_POSTS = 5;
