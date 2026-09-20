@@ -1,5 +1,5 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import { type CollectionEntry, render } from "astro:content";
 import Button from "@/components/Button.astro";
 import CommentSection from "@/components/blog/CommentSection.astro";
 import BlogHero from "@/components/blog/Hero.astro";
@@ -16,7 +16,7 @@ const { ogImage, title, description, publishDate } = post.data;
 const socialImage = ogImage ?? `/og-image/${post.id}.png`;
 // const articleDate = updatedDate?.toISOString() ?? publishDate.toISOString()
 const articleDate = publishDate.toISOString();
-const { headings } = await post.render();
+const { headings } = await render(post);
 ---
 
 <PageLayout meta={{ articleDate, description, ogImage: socialImage, title }}>
@@ -68,9 +68,9 @@ const { headings } = await post.render();
       </svg>
     </button>
   </div>
-  <secton class="mt-20 w-full">
+  <section class="mt-20 w-full">
     <CommentSection />
-  </secton>
+  </section>
 </PageLayout>
 
 <script>

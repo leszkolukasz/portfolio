@@ -6,7 +6,8 @@ Based on [astro-theme-resume](https://github.com/srleom/astro-theme-resume) by [
 
 ## Features
 
-- Astro v5
+- Astro v7
+- [Sätteri](https://github.com/bruits/satteri) Markdown processor
 - TailwindCSS v4 utility classes
 - Biome pre-installed and pre-configured
 - Accessible, semantic HTML markup
