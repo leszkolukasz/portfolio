@@ -19,6 +19,14 @@ import Section from "../components/Section.astro";
 import SkillLayout from "../components/SkillLayout.astro";
 import PageLayout from "../layouts/BaseLayout.astro";
 
+const visaSkills: Skill[] = [
+  SKILLS.pytorch,
+  SKILLS.mlflow,
+  SKILLS.ray,
+  SKILLS.airflow,
+  SKILLS.spark,
+];
+
 const radcodeSkills: Skill[] = [
   SKILLS.react,
   SKILLS.typescript,
@@ -115,9 +123,8 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
     <Section title="About">
       <p class="text-muted-foreground">
-        My name is Łukasz Leszko and I'm currently studying Machine Learning (Master's degree) 💻
-        and Mathematics (Bachelor's degree) ➗ at University of Warsaw and recently earned
-        bachelor's degree in Computer Science 🎓.
+        My name is Łukasz Leszko. I'm a Computer Science graduate 🎓 currently studying Machine
+        Learning 🤖, Mathematics ➗ (MIMUW), and Physics ⚛️ (FUW) at the University of Warsaw.
       </p>
       <p class="text-muted-foreground">
         I'm also a retired competitive programmer, gamer and keen on Linux and FOSS.
@@ -125,7 +132,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
       <p class="text-muted-foreground">My areas of interest are:</p>
       <ul class="ml-4 list-disc text-muted-foreground">
         <li>Programming languages (compilers, language design)</li>
-        <li>Machine learning (LLMs)</li>
+        <li>Machine learning (Diffusion Models)</li>
       </ul>
     </Section>
     {allPostsByDate.length > 0 && (
@@ -146,7 +153,9 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
         subheading="Visa"
         date="Jul 2026 - Sep 2026"
         subheadingHref="https://www.linkedin.com/company/visa"
-      />
+      >
+        <SkillList skills={visaSkills} small />
+      </Card>
       <Card
         heading="Junior Software Engineer"
         subheading="RadCode"
@@ -175,6 +184,12 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
     <Section title="Education">
       <Card
+        heading="Bachelor's Degree, Physics"
+        subheading="University of Warsaw"
+        date="2026 - present"
+        subheadingHref="https://www.fuw.edu.pl/"
+      />
+      <Card
         heading="Master's Degree, Machine Learning"
         subheading="University of Warsaw"
         date="2024 - present"
@@ -185,11 +200,15 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
         </ul>
       </Card>
       <Card
-        heading="Bachelors's Degree, Mathematics"
+        heading="Bachelor's Degree, Mathematics"
         subheading="University of Warsaw"
         date="2022 - present"
         subheadingHref="https://www.mimuw.edu.pl/en/"
-      />
+      >
+        <ul class="ml-4 list-disc text-muted-foreground">
+          <li>Thesis: Finding optimal timesteps for score-based diffusion models</li>
+        </ul>
+      </Card>
       <Card
         heading="Bachelor's Degree, Computer Science"
         subheading="University of Warsaw"
@@ -200,7 +219,6 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
           <li>
             Thesis: Gitoptim - a tool for automating programmer's work using large language models
           </li>
-          <li>Grade: Good (4.25 in a 2&#45;5 scale)</li>
         </ul>
       </Card>
     </Section>

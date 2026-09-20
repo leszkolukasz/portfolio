@@ -33,7 +33,7 @@ export type Skill = {
 export type Project = {
   title: string;
   description: string;
-  href: string;
+  href?: string;
   skills: Skill[];
   image?: string;
 };

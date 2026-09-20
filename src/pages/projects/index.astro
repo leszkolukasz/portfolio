@@ -12,11 +12,45 @@ const meta: SiteMeta = {
 
 const projects: Project[] = [
   {
-    title: "Training 1.58bit LLMs via Distillation - paper",
+    title: "MLOps Pipeline for Fraud Detection - Visa internship",
     description:
-      "Mini-paper on training 1.58bit LLMs via distillation. It explores the effectiveness of distillation using different quantization methods, such as those introduces in papers: OneBit, BitNet and FBI and compares them with 1bit quantization.",
+      "Scalable MLOps pipeline for a device-fingerprint fraud detection system. Includes an end-to-end training and evaluation workflow and a transformer-based model for detecting fraudulent activity across high-volume transaction streams.",
+    skills: [
+      SKILLS.pytorch,
+      SKILLS.mlflow,
+      SKILLS.ray,
+      SKILLS.airflow,
+      SKILLS.spark,
+      SKILLS.pandas,
+    ],
+  },
+  {
+    title: "SubSHAP: Visual Feature Attribution",
+    description:
+      "Research project on visual Shapley values. SubSHAP is a unified image-substitution pipeline that computes n-Shapley values and achieves high-quality visual feature attribution according to the ROAR benchmark.",
+    href: "https://github.com/filip123355/counterfactual-explanations-by-substitution",
+    skills: [
+      SKILLS.python,
+      SKILLS.pytorch,
+      SKILLS.opencv,
+      SKILLS.mlflow,
+      SKILLS.numpy,
+      SKILLS.pandas,
+    ],
+  },
+  {
+    title: "GraphMLGO: Topology-Aware RL for Function Inlining",
+    description:
+      "Research project extending ML-guided compiler optimisation (MLGO) with richer call-graph representations. Compares application of GraphSAGE and GAT embeddings for the LLVM inlining policy.",
+    href: "https://github.com/leszkolukasz/graph-mlgo",
+    skills: [SKILLS.python, SKILLS.jax, SKILLS.cpp, SKILLS.huggingface, SKILLS.numpy],
+  },
+  {
+    title: "Training 1.58bit LLMs via Distillation",
+    description:
+      "Research on training 1.58bit LLMs via distillation. It explores the effectiveness of distillation using different quantization methods, such as those introduces in papers: OneBit, BitNet and FBI and compares them with 1bit quantization.",
     href: "https://github.com/leszkolukasz/training-1.58bit-llms-via-distillation",
-    skills: [SKILLS.python, SKILLS.pytorch, SKILLS.huggingface],
+    skills: [SKILLS.python, SKILLS.pytorch, SKILLS.huggingface, SKILLS.pandas],
   },
   {
     title: "Moondream CPP - C++ library/Android app",
@@ -102,7 +136,8 @@ const projects: Project[] = [
       <div class="flex flex-col flex-wrap justify-start gap-x-6 gap-y-6 sm:flex-row">
         {projects.map((project) => (
   <ProjectCard
-    href={project.href}
+    component={project.href ? "a" : "div"}
+    {...(project.href ? { href: project.href } : {})}
     heading={project.title}
     subheading={project.description}
     image={project.image}
