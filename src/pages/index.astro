@@ -1,25 +1,23 @@
 ---
-import PageLayout from "../layouts/BaseLayout.astro"
-import Section from "../components/Section.astro"
-import Card from "../components/Card.astro"
-import Label from "../components/Label.astro"
-import SkillLayout from "../components/SkillLayout.astro"
-import PostPreview from "@/components/blog/PostPreview.astro"
-
-import { Image } from "astro:assets"
-import profile from "../assets/profile.png"
-
-import { getAllPosts, sortMDByDate } from "@/utils"
-import { Icon } from "astro-icon/components"
-import type { Skill } from "@/types"
-import SkillList from "@/components/SkillList.astro"
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import {
   LANGUAGE_SKILLS,
   MACHINE_LEARNING_SKILLS,
+  OPERATING_SYSTEM_SKILLS,
   SKILLS,
   WEB_SKILLS,
-  OPERATING_SYSTEM_SKILLS,
-} from "src/constants"
+} from "src/constants";
+import PostPreview from "@/components/blog/PostPreview.astro";
+import SkillList from "@/components/SkillList.astro";
+import type { Skill } from "@/types";
+import { getAllPosts, sortMDByDate } from "@/utils";
+import profile from "../assets/profile.png";
+import Card from "../components/Card.astro";
+import Label from "../components/Label.astro";
+import Section from "../components/Section.astro";
+import SkillLayout from "../components/SkillLayout.astro";
+import PageLayout from "../layouts/BaseLayout.astro";
 
 const radcodeSkills: Skill[] = [
   SKILLS["react"],
@@ -37,7 +35,7 @@ const radcodeSkills: Skill[] = [
   SKILLS["fastapi"],
   SKILLS["huggingface"],
   SKILLS["docker"],
-]
+];
 
 const devbridgeSkills: Skill[] = [
   SKILLS["java"],
@@ -49,7 +47,7 @@ const devbridgeSkills: Skill[] = [
   SKILLS["mongodb"],
   SKILLS["vite"],
   SKILLS["docker"],
-]
+];
 
 const cognizantSkills: Skill[] = [
   SKILLS["java"],
@@ -60,11 +58,11 @@ const cognizantSkills: Skill[] = [
   SKILLS["postgresql"],
   SKILLS["kubernetes"],
   SKILLS["docker"],
-]
+];
 
-const MAX_POSTS = 5
-const allPosts = await getAllPosts()
-const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
+const MAX_POSTS = 5;
+const allPosts = await getAllPosts();
+const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 ---
 
 <PageLayout meta={{ title: "Home" }}>
@@ -84,12 +82,18 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
             <Icon name="university" class="h-5 w-5 rounded" slot="icon" />
           </Label>
           <Label title="Poland">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5" slot="icon"
-              ><path
+            <svg
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              class="h-5 w-5"
+              slot="icon"
+            >
+              <path
                 fill="currentColor"
                 d="M12.003 11.73q.668 0 1.14-.475q.472-.475.472-1.143t-.475-1.14q-.476-.472-1.143-.472t-1.14.476q-.472.475-.472 1.143t.475 1.14q.476.472 1.143.472M12 19.677q2.82-2.454 4.458-4.991q1.638-2.538 1.638-4.39q0-2.744-1.737-4.53T12 3.981q-2.621 0-4.359 1.785t-1.737 4.53q0 1.852 1.638 4.39q1.639 2.537 4.458 4.99m0 1.343q-3.525-3.117-5.31-5.814q-1.786-2.697-1.786-4.909q0-3.173 2.066-5.234Q9.037 3 12 3t5.03 2.062q2.066 2.061 2.066 5.234q0 2.212-1.785 4.909q-1.786 2.697-5.311 5.814m0-10.904"
-              ></path></svg
-            >
+              ></path>
+            </svg>
           </Label>
           <div class="flex flex-wrap items-center justify-center gap-x-3">
             <a href="mailto:lukasz@leszko.dev">
@@ -124,19 +128,17 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
         <li>Machine learning (LLMs)</li>
       </ul>
     </Section>
-    {
-      allPostsByDate.length > 0 && (
-        <Section title="Posts">
-          <ul class="flex flex-col gap-y-2">
-            {allPostsByDate.map((p) => (
-              <li class="flex flex-col gap-x-2 sm:flex-row">
-                <PostPreview post={p} />
-              </li>
-            ))}
-          </ul>
-        </Section>
-      )
-    }
+    {allPostsByDate.length > 0 && (
+  <Section title="Posts">
+    <ul class="flex flex-col gap-y-2">
+      {allPostsByDate.map((p) => (
+        <li class="flex flex-col gap-x-2 sm:flex-row">
+          <PostPreview post={p} />
+        </li>
+      ))}
+    </ul>
+  </Section>
+)}
 
     <Section title="Experience">
       <Card

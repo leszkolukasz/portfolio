@@ -1,11 +1,11 @@
 ---
-import PageLayout from "@/layouts/BaseLayout.astro"
-import Button from "@/components/Button.astro"
+import Button from "@/components/Button.astro";
+import PageLayout from "@/layouts/BaseLayout.astro";
 
 const meta = {
   description: "Not found",
   title: "404",
-}
+};
 ---
 
 <PageLayout meta={meta}>
@@ -15,6 +15,7 @@ const meta = {
     <p class="">Sorry, we couldn't find your page.</p>
     <Button title="Back to home" href="/" style="button" class="mt-5">
       <svg
+        aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="14"
         height="14"
@@ -25,8 +26,7 @@ const meta = {
         <path
           fill="currentColor"
           d="m6.921 12.5l5.792 5.792L12 19l-7-7l7-7l.713.708L6.921 11.5H19v1z"
-        >
-        </path>
+        ></path>
       </svg>
     </Button>
   </div>

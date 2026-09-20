@@ -1,47 +1,47 @@
 <div id="comments-section">
   <div id="comments-placeholder">
     <script is:inline>
-        function getCurrentTheme() {
-          return localStorage.getItem("theme") || "dark";
-        }
+    function getCurrentTheme() {
+      return localStorage.getItem("theme") || "dark";
+    }
 
-        function setCommentsTheme(theme) {
-          const giscusScript = document.querySelector("#comments-placeholder .giscus");
+    function setCommentsTheme(theme) {
+      const giscusScript = document.querySelector("#comments-placeholder .giscus");
 
-          if (giscusScript) {
-            giscusScript.remove();
-          }
+      if (giscusScript) {
+        giscusScript.remove();
+      }
 
-          // Create a new script with the updated theme
-          const newScript = document.createElement("script");
-          newScript.src = "https://giscus.app/client.js";
-          newScript.crossOrigin = "anonymous";
-          newScript.async = true;
-          newScript.setAttribute("data-repo", "leszkolukasz/portfolio-comments");
-          newScript.setAttribute("data-repo-id", "R_kgDONvMT-A");
-          newScript.setAttribute("data-category", "Announcements");
-          newScript.setAttribute("data-category-id", "DIC_kwDONvMT-M4Cptt9");
-          newScript.setAttribute("data-mapping", "pathname");
-          newScript.setAttribute("data-strict", "0");
-          newScript.setAttribute("data-reactions-enabled", "1");
-          newScript.setAttribute("data-emit-metadata", "0");
-          newScript.setAttribute("data-input-position", "top");
-          newScript.setAttribute("data-theme", theme);
-          newScript.setAttribute("data-lang", "en");
-          newScript.setAttribute("data-loading", "lazy");
+      // Create a new script with the updated theme
+      const newScript = document.createElement("script");
+      newScript.src = "https://giscus.app/client.js";
+      newScript.crossOrigin = "anonymous";
+      newScript.async = true;
+      newScript.setAttribute("data-repo", "leszkolukasz/portfolio-comments");
+      newScript.setAttribute("data-repo-id", "R_kgDONvMT-A");
+      newScript.setAttribute("data-category", "Announcements");
+      newScript.setAttribute("data-category-id", "DIC_kwDONvMT-M4Cptt9");
+      newScript.setAttribute("data-mapping", "pathname");
+      newScript.setAttribute("data-strict", "0");
+      newScript.setAttribute("data-reactions-enabled", "1");
+      newScript.setAttribute("data-emit-metadata", "0");
+      newScript.setAttribute("data-input-position", "top");
+      newScript.setAttribute("data-theme", theme);
+      newScript.setAttribute("data-lang", "en");
+      newScript.setAttribute("data-loading", "lazy");
 
-          document.getElementById("comments-placeholder").appendChild(newScript);
-        }
+      document.getElementById("comments-placeholder").appendChild(newScript);
+    }
 
-        document.addEventListener("theme-change", (event) => {
-          const newTheme = event.detail.theme;
-          setCommentsTheme(newTheme);
-        });
+    document.addEventListener("theme-change", (event) => {
+      const newTheme = event.detail.theme;
+      setCommentsTheme(newTheme);
+    });
 
-        document.addEventListener("DOMContentLoaded", () => {
-          const currentTheme = getCurrentTheme();
-          setCommentsTheme(currentTheme);
-        });
+    document.addEventListener("DOMContentLoaded", () => {
+      const currentTheme = getCurrentTheme();
+      setCommentsTheme(currentTheme);
+    });
     </script>
   </div>
   <!-- TODO: add spinner -->

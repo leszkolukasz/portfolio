@@ -1,11 +1,10 @@
-import RobotoMonoBold from "@/assets/fonts/roboto-mono-700.ttf"
-import RobotoMono from "@/assets/fonts/roboto-mono-regular.ttf"
-import { getAllPosts, getFormattedDate } from "@/utils"
-import { Resvg } from "@resvg/resvg-js"
-import type { APIContext, InferGetStaticPropsType } from "astro"
-import satori, { type SatoriOptions } from "satori"
-import { html } from "satori-html"
-import { toBase64 } from "@/utils"
+import { Resvg } from "@resvg/resvg-js";
+import type { APIContext, InferGetStaticPropsType } from "astro";
+import satori, { type SatoriOptions } from "satori";
+import { html } from "satori-html";
+import RobotoMonoBold from "@/assets/fonts/roboto-mono-700.ttf";
+import RobotoMono from "@/assets/fonts/roboto-mono-regular.ttf";
+import { getAllPosts, getFormattedDate, toBase64 } from "@/utils";
 
 const ogOptions: SatoriOptions = {
   // debug: true,
@@ -25,7 +24,7 @@ const ogOptions: SatoriOptions = {
   ],
   height: 630,
   width: 1200,
-}
+};
 
 // TODO: fix polish characters
 const markup = (title: string, pubDate: string) =>
@@ -44,30 +43,30 @@ const markup = (title: string, pubDate: string) =>
       </div>
       <p>by Lukasz Leszko</p>
     </div>
-  </div>`
+  </div>`;
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 export async function GET(context: APIContext) {
-  const { pubDate, title } = context.props as Props
+  const { pubDate, title } = context.props as Props;
 
   const postDate = getFormattedDate(pubDate, {
     month: "long",
     weekday: "long",
-  })
+  });
 
-  const svg = await satori(markup(title, postDate), ogOptions)
-  const png = new Resvg(svg).render().asPng()
+  const svg = await satori(markup(title, postDate), ogOptions);
+  const png = new Resvg(svg).render().asPng();
   return new Response(new Uint8Array(png), {
     headers: {
       "Cache-Control": "public, max-age=31536000, immutable",
       "Content-Type": "image/png",
     },
-  })
+  });
 }
 
 export async function getStaticPaths() {
-  const posts = await getAllPosts()
+  const posts = await getAllPosts();
   return posts
     .filter(({ data }) => !data.ogImage)
     .map((post) => ({
@@ -77,5 +76,5 @@ export async function getStaticPaths() {
         pubDate: post.data.publishDate,
         title: post.data.title,
       },
-    }))
+    }));
 }

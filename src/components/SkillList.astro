@@ -1,25 +1,23 @@
 ---
-import { Icon } from "astro-icon/components"
-import Button from "./Button.astro"
-import type { Skill } from "@/types"
+import { Icon } from "astro-icon/components";
+import type { Skill } from "@/types";
+import Button from "./Button.astro";
 
 interface Props {
-  skills: Skill[]
-  small?: boolean
+  skills: Skill[];
+  small?: boolean;
 }
 
-const { skills, small } = Astro.props
+const { skills, small } = Astro.props;
 ---
 
 <div class="flex w-full flex-row flex-wrap gap-x-4 gap-y-2">
-  {
-    skills.map((skill: Skill) => (
-      <Button component="button" title={skill.title} style="pill" small={small}>
-        {skill.emoji != null && <span slot="icon-before">{skill.emoji}</span>}
-        {skill.icon != null && (
-          <Icon name={skill.icon} class="h-4 w-4" slot="icon-before" color={skill.color} />
-        )}
-      </Button>
-    ))
-  }
+  {skills.map((skill: Skill) => (
+  <Button component="button" title={skill.title} style="pill" small={small}>
+    {skill.emoji != null && <span slot="icon-before">{skill.emoji}</span>}
+    {skill.icon != null && (
+      <Icon name={skill.icon} class="h-4 w-4" slot="icon-before" color={skill.color} />
+    )}
+  </Button>
+))}
 </div>

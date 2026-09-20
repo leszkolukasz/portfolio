@@ -1,40 +1,39 @@
 ---
-export const prerender = true
+export const prerender = true;
 
-import type { GetStaticPaths, Page } from "astro"
-import type { CollectionEntry } from "astro:content"
-
-import Pagination from "@/components/Paginator.astro"
-import PostPreview from "@/components/blog/PostPreview.astro"
-import PageLayout from "@/layouts/BaseLayout.astro"
-import Button from "@/components/Button.astro"
-import { getAllPosts, getUniqueTags, sortMDByDate } from "@/utils"
+import type { CollectionEntry } from "astro:content";
+import type { GetStaticPaths, Page } from "astro";
+import Button from "@/components/Button.astro";
+import PostPreview from "@/components/blog/PostPreview.astro";
+import Pagination from "@/components/Paginator.astro";
+import PageLayout from "@/layouts/BaseLayout.astro";
+import { getAllPosts, getUniqueTags, sortMDByDate } from "@/utils";
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
-  const allPosts = await getAllPosts()
-  const allPostsByDate = sortMDByDate(allPosts)
-  const uniqueTags = getUniqueTags(allPostsByDate)
+  const allPosts = await getAllPosts();
+  const allPostsByDate = sortMDByDate(allPosts);
+  const uniqueTags = getUniqueTags(allPostsByDate);
 
   return uniqueTags.flatMap((tag) => {
-    const filterPosts = allPostsByDate.filter((post) => post.data.tags.includes(tag))
+    const filterPosts = allPostsByDate.filter((post) => post.data.tags.includes(tag));
     return paginate(filterPosts, {
       pageSize: 10,
       params: { tag },
-    })
-  })
-}
+    });
+  });
+};
 
 interface Props {
-  page: Page<CollectionEntry<"post">>
+  page: Page<CollectionEntry<"post">>;
 }
 
-const { page } = Astro.props
-const { tag } = Astro.params
+const { page } = Astro.props;
+const { tag } = Astro.params;
 
 const meta = {
   description: `View all posts with the tag - ${tag}`,
   title: `Tag: ${tag}`,
-}
+};
 
 const paginationProps = {
   ...(page.url.prev && {
@@ -49,13 +48,14 @@ const paginationProps = {
       url: page.url.next,
     },
   }),
-}
+};
 ---
 
 <PageLayout meta={meta}>
   <div class="w-full">
     <Button title="Back" href="/blog" style="button">
       <svg
+        aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="14"
         height="14"
@@ -65,8 +65,7 @@ const paginationProps = {
         <path
           fill="currentColor"
           d="m6.921 12.5l5.792 5.792L12 19l-7-7l7-7l.713.708L6.921 11.5H19v1z"
-        >
-        </path>
+        ></path>
       </svg>
     </Button>
     <h1 class="mb-6 mt-10 flex items-end gap-x-2 text-2xl font-bold">

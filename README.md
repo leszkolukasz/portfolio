@@ -6,9 +6,9 @@ Based on [astro-theme-resume](https://github.com/srleom/astro-theme-resume) by [
 
 ## Features
 
-- Astro v4
-- TailwindCSS utility classes
-- ESLint / Prettier pre-installed and pre-configured
+- Astro v5
+- TailwindCSS v4 utility classes
+- Biome pre-installed and pre-configured
 - Accessible, semantic HTML markup
 - Responsive & SEO-friendly
 - Dark / Light mode, using Tailwind and CSS variables (referenced from shadcn)
@@ -40,13 +40,10 @@ Inside of your Astro project, you'll see the following folders and files:
 |   ├── utils/
 |   ├── site.config.ts
 │   └── types.ts
-├── .elintrc.cjs
+├── biome.json
 ├── .gitignore
-├── .prettierignore
 ├── package.json
-├── prettier.config.cjs
 ├── README.md
-├── tailwind.config.js
 └── tsconfig.json
 ```
 
@@ -68,7 +65,7 @@ To edit page components found site-wide such as the card used in the homepage, e
 
 To edit the base layouts of all pages, edit the `src/layouts/BaseLayout.astro` file.
 
-To edit the layout of a blog article, edit the `src/layouts/BlogPost.astro` file.
+To edit the layout of a blog article, edit the `src/layouts/BlogLayout.astro` file.
 
 ### Blog content
 
@@ -76,8 +73,12 @@ To add blog content, insert `.md` files in the `src/content/` directory.
 
 To add images in blog articles, insert a folder in the `src/content/` directory, add both the `.md` and image files into the new folder, and reference the image in your `.md` file.
 
+### Icons
+
+Icons usually come from [Devicon](https://devicon.dev/). To add a new icon, download the SVG file from the Devicon site, and add it to the `src/icons/` directory.
+
 ## Theming
 
 To change the theme colours of the site, edit the `src/styles/app.css` file.
 
-To change the fonts of the site, add your font files into `/public`, add it as a `@font-face` in the `src/styles/app.css` file, as a `fontFamily` in the `tailwind.config.js` file, and apply the new font class to the `body` tag in the `src/layouts/BaseLayout.astro` file.
+To change the fonts of the site, add your font files into `/public`, declare a `@font-face` and the corresponding `--font-*` token in the `src/styles/app.css` file, and apply the font class to the `main` element in the `src/layouts/BaseLayout.astro` file.

@@ -1,2 +1,2 @@
-export * from "./remarkReadingTime"
-export * from "./remarkAdmonitions"
+export * from "./remarkAdmonitions";
+export * from "./remarkReadingTime";
